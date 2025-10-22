@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Cardo:400i|Open+Sans:700|Raleway:300,400,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" href="objects.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple.jpg">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/32.jpg">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/16.jpg">
+    <link rel="manifest" href="img/favicons/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta name="description" content="Риэлторские услуги агентства недвижимости «Альтаир Недвижимость». Покупка, продажа, аренда квартир и коммерческой недвижимости." />
+    <meta name="keywords" content="риэлторские услуги, недвижимость, покупка, продажа, аренда, коммерческая недвижимость, квартиры, новостройки" />
+    <meta name="google" content="notranslate" />
+    <title>ООО Альтаир Недвижимость</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" defer></script>
+</head>
+<body>
+
+<header class="header" id="header" role="banner">
+    <div class="container">
+        <div class="header__inner">
+            <h1 class="header__logo" role="heading" aria-level="1"><b>ООО АЛЬТАИР НЕДВИЖИМОСТЬ</b></h1>
+            <nav class="nav" id="nav">
+                <a class="nav__link" href="index.html">главная</a>
+                <a class="nav__link" href="objects.html">объекты</a>
+                <a class="nav__link" href="services.html">услуги</a>
+                <a class="nav__link" href="about.html">о нас</a>
+                <a class="nav__link" href="contacts.html">контакты</a>
+            </nav>
+            <button class="burger" type="button" id="navToggle" aria-label="Переключить меню" aria-expanded="false" aria-controls="nav">
+                <span class="burger__item">Menu</span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<main id="intro" class="intro" role="main">
+    <div class="container">
+        <section class="section menu-section" aria-label="Выбор типа объектов недвижимости">
+            <nav class="menu" role="navigation" aria-label="Категории квартир и помещений">
+                <a href="objects.html" target="_blank"><button class="btn success" type="button">1-комнатные</button></a>
+                <a href="2rooms.html" target="_blank"><button class="btn info" type="button">2-комнатные</button></a>
+                <a href="3rooms.html" target="_blank"><button class="btn warning" type="button">3-комнатные</button></a>
+                <a href="comercial.html" target="_blank"><button class="btn danger" type="button">Коммерческие помещения</button></a>
+                <a href="index.html" target="_blank"><button class="btn default" type="button">Аренда</button></a>
+            </nav>
+        </section>
+
+        <section class="section slider-accordion-section">
+            <div class="wedo">
+                <div class="wedo__item">
+                    <div class="adaptivny-slayder" role="region" aria-label="Слайдер недвижимости">
+                        <input type="radio" name="kadoves" id="slaid1" checked>
+                        <input type="radio" name="kadoves" id="slaid2">
+                        <input type="radio" name="kadoves" id="slaid3">
+                        <input type="radio" name="kadoves" id="slaid4">
+                        <input type="radio" name="kadoves" id="slaid5">
+                        <input type="radio" name="kadoves" id="slaid6">
+                        <input type="radio" name="kadoves" id="slaid7">
+                        <div class="kadoves" role="tablist">
+                            <label for="slaid1" role="tab" tabindex="0" aria-controls="slide1" aria-selected="true"></label>
+                            <label for="slaid2" role="tab" tabindex="-1" aria-controls="slide2" aria-selected="false"></label>
+                            <label for="slaid3" role="tab" tabindex="-1" aria-controls="slide3" aria-selected="false"></label>
+                            <label for="slaid4" role="tab" tabindex="-1" aria-controls="slide4" aria-selected="false"></label>
+                            <label for="slaid5" role="tab" tabindex="-1" aria-controls="slide5" aria-selected="false"></label>
+                            <label for="slaid6" role="tab" tabindex="-1" aria-controls="slide6" aria-selected="false"></label>
+                            <label for="slaid7" role="tab" tabindex="-1" aria-controls="slide7" aria-selected="false"></label>
+                        </div>
+                        <div class="adaptivny-slayder-lasekun">
+                            <div class="abusteku-deagulus">
+                                <img src="img/objects/2.jpg" alt="1-комнатная квартира вид 1">
+                                <img src="img/objects/3.jpg" alt="1-комнатная квартира вид 2">
+                                <img src="img/objects/4.jpg" alt="1-комнатная квартира вид 3">
+                                <img src="img/objects/5.jpg" alt="1-комнатная квартира вид 4">
+                                <img src="img/objects/6.jpg" alt="1-комнатная квартира вид 5">
+                                <img src="img/objects/2.JPG" alt="1-комнатная квартира вид 6">
+                                <img src="img/objects/4.jpg" alt="1-комнатная квартира вид 7">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wedo__item">
+                    <div class="accordion" role="presentation">
+                        <div class="accordion__item" data-collapse="#wedo_1">
+                            <div class="accordion__header" role="button" tabindex="0" aria-expanded="false" aria-controls="wedo_1">
+                                <img class="accordion__icon" alt="">
+                                <div class="accordion__title">1-Комнатная квартира</div>
+                            </div>
+                            <div class="accordion__content" id="wedo_1" role="region" aria-hidden="true">
+                                <p>Описание</p>
+                            </div>
+                        </div>
+                        <div class="accordion__item active" data-collapse="#wedo_2">
+                            <div class="accordion__header" role="button" tabindex="0" aria-expanded="true" aria-controls="wedo_2">
+                                <img class="accordion__icon" alt="">
+                                <div class="accordion__title">Описание</div>
+                            </div>
+                            <div class="accordion__content" id="wedo_2" role="region" aria-hidden="false">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            </div>
+                        </div>
+                        <div class="accordion__item" data-collapse="#wedo_3">
+                            <div class="accordion__header" role="button" tabindex="0" aria-expanded="false" aria-controls="wedo_3">
+                                <img class="accordion__icon" alt="">
+                                <div class="accordion__title">Контакты</div>
+                            </div>
+                            <div class="accordion__content" id="wedo_3" role="region" aria-hidden="true">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            </div>
+                        </div>
+                    </div><!-- /.accordion -->
+                </div><!-- /.wedo__item -->
+
+            </div><!-- /.wedo -->
+        </section>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+
+        <div class="footer__inner">
+            <div class="footer__block">
+                <h4 class="footer__title">Наш Адрес</h4>
+                <address class="footer__address">
+                    <div>ул. Николаева, 54</div>
+                    <div>Электросталь, Московская обл.,<br>Россия, 144012</div>
+                </address>
+            </div>
+
+            <div class="footer__block">
+                <h4 class="footer__title">Наш E-MAIL</h4>
+                <div class="social  social--footer">
+                    <div class="footer__text">
+                        <p>altair-stars@bk.ru</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer__block">
+                <h4 class="footer__title">Тел. номер</h4>
+                <div class="footer__text">
+                    <p>+7(916) 817-47-88</p>
+                </div>
+            </div>
+        </div><!-- /.footer__inner -->
+    </div><!-- /.container -->
+
+    <div class="copyright">
+        <div class="container">
+            <div class="copyright__text">
+                <div>© 2023 Альтаир Недвижимость. All Rights Reserved</div>
+                <div>Made <span>by Fokin Eugene</span></div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="app.js" defer></script>
+
+</body>
+</html>
