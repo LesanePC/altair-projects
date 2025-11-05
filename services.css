@@ -73,7 +73,7 @@ p { margin: 0 0 10px; }
   height: 750px;
   padding-top: 50px;
   opacity: .9;
-  background: #fff url("../activebox/img/Back_fon.png") center no-repeat;
+  background: #fff url("img/Back_fon.png") center no-repeat;
   background-size: cover;
 }
 .intro__inner {

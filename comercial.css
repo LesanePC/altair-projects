@@ -113,7 +113,7 @@ p {
     justify-content: center;
     height: 100%;
     padding-top: 80px;
-    background: #0000009f; 
+    background: #31344e url(img/Back_fon.png) center no-repeat;
     background-size: cover;
     
 }
