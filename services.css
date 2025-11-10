@@ -1,5 +1,5 @@
-/* Box-sizing и базовые стили */
 *, *::before, *::after { box-sizing: border-box; }
+
 body {
   margin: 0;
   font-family: 'Raleway', sans-serif;
@@ -8,8 +8,11 @@ body {
   background-color: #fff;
   -webkit-font-smoothing: antialiased;
 }
+
 h1, h2, h3, h4, h5, h6 { margin: 0; }
+
 p { margin: 0 0 10px; }
+
 .container {
   max-width: 1200px;
   margin: 0 auto;

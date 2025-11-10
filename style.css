@@ -24,8 +24,6 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
 }
 
-p { margin-bottom: 1em; color: #ffffff; }
-
 img, picture, video, canvas, svg {
   max-width: 100%;
   display: block;
@@ -162,7 +160,7 @@ a:not([class]) { color: inherit; text-decoration-skip-ink: auto; }
   border: 5px solid #ffd000;
   font-size: 14px;
   font-weight: 700;
-  color: #31344e;
+  color: #fff;
   text-transform: uppercase;
   background-color: transparent;
   cursor: pointer;
@@ -170,7 +168,7 @@ a:not([class]) { color: inherit; text-decoration-skip-ink: auto; }
 }
 
 .btn:hover, .btn:focus {
-  background-color: #ffd000;
+  background-color: azure;
   color: #31344e;
   outline: none;
 }
@@ -331,7 +329,7 @@ a:not([class]) { color: inherit; text-decoration-skip-ink: auto; }
   margin-bottom: 20px;
   font-size: 15px;
   line-height: 1.5;
-  color: #6c7279;
+  color: #333;
 }
 
 /* Footer */

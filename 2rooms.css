@@ -189,135 +189,96 @@ p {
   height: auto;
 }
 
-/* Адаптивный слайдер */
-.adaptivny-slayder {
-  position: relative;
-  max-width: 650px;
-  margin: 50px auto 0;
-  bottom: 60px;
-  border: 3px solid #ffd000;
-  box-shadow: 0 10px 20px -5px rgba(252, 252, 252, 0.445);
-}
-
-.adaptivny-slayder input[name="kadoves"] {
-  display: none;
-}
-
-.kadoves {
-  position: absolute;
-  left: 0;
-  bottom: -40px;
-  width: 100%;
-  text-align: center;
-}
-
-.kadoves label {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  margin: 0 3px;
-  cursor: pointer;
-  border-radius: 50%;
-  border: 7px solid #ffd000;
-  background-color: #fffcfc;
-  box-shadow: 0 0 2px #fff;
-}
-
-/* Переключение цвет для выбранного слайда */
-.kadoves label[for^="slaid"]:checked {
-  background-color: white;
-}
-
-.adaptivny-slayder-lasekun {
-  overflow: hidden;
-}
-
-.abusteku-deagulus {
+.property-block {
   display: flex;
-  width: 100%;
-  transition: all 0.5s;
+  gap: 30px;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  background-color: #fff;
+  color: #333;
+  font-family: Arial, sans-serif;
 }
 
-.abusteku-deagulus img {
-  width: 100%;
-  flex-shrink: 0;
+.gallery {
+  flex: 1 1 55%;
 }
 
-/* Перемещение слайдов */
-#adkadoves:checked ~ .adaptivny-slayder-lasekun .abusteku-deagulus {
-  transform: translate(0);
-}
-
-#slaid1:checked ~ .adaptivny-slayder-lasekun .abusteku-deagulus { transform: translateX(0); }
-#slaid2:checked ~ .adaptivny-slayder-lasekun .abusteku-deagulus { transform: translateX(-100%); }
-#slaid3:checked ~ .adaptivny-slayder-lasekun .abusteku-deagulus { transform: translateX(-200%); }
-#slaid4:checked ~ .adaptivny-slayder-lasekun .abusteku-deagulus { transform: translateX(-300%); }
-#slaid5:checked ~ .adaptivny-slayder-lasekun .abusteku-deagulus { transform: translateX(-400%); }
-#slaid6:checked ~ .adaptivny-slayder-lasekun .abusteku-deagulus { transform: translateX(-500%); }
-#slaid7:checked ~ .adaptivny-slayder-lasekun .abusteku-deagulus { transform: translateX(-600%); }
-/* Аналогично для слайдов 8-28 */
-
-/* Аккордеон */
-.accordion__item {
-  margin-bottom: 10px;
-  border: 3px solid #ffd000;
-}
-
-.accordion__item.active .accordion__content {
-  display: block;
-}
-
-.accordion__item.active .accordion__header {
-  border-bottom-color: #ffd000;
-}
-
-.accordion__item.active .accordion__header:after {
-  transform: translateY(-50%) rotate(-45deg);
-  margin-top: 5px;
-}
-
-.accordion__header {
-  padding: 15px 20px 15px 65px;
+.slides {
   position: relative;
-  border-bottom: 1px solid transparent;
-  cursor: pointer;
+  overflow: hidden;
+  height: 300px;
+  margin-bottom: 15px;
 }
-
-.accordion__header:after {
-  content: "";
-  display: block;
-  width: 16px;
-  height: 16px;
-  border-top: 2px solid #ffd000;
-  border-right: 2px solid #ffd000;
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  z-index: 1;
-  transform: translateY(-50%) rotate(135deg);
-}
-
-.accordion__icon {
-  position: absolute;
-  top: 50%;
-  left: 20px;
-  z-index: 1;
-  transform: translateY(-50%);
-}
-
-.accordion__content {
-  padding: 15px 20px;
+.slide {
   display: none;
-  font-size: 15px;
-  color: #fff;
-  font-style: italic;
-  font-weight: 300;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.slide.active {
+  display: block;
 }
 
-.accordion__title {
-  font-size: 14px;
+.thumbnails {
+  display: flex;
+  gap: 10px;
+}
+
+.thumb {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 4px;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+.thumb.active, .thumb:hover {
+  opacity: 1;
+  border: 2px solid #34495e;
+}
+
+.description {
+  flex: 1 1 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.details {
+  font-size: 16px;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffdd10;
+  margin-bottom: 25px;
+}
+
+.contact-btn {
+  background-color: #34495e;
   color: #fff;
-  text-transform: uppercase;
+  border: none;
+  padding: 14px 30px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.contact-btn:hover {
+  background-color: #2d2f31;
 }
 
 /* Социальные иконки */

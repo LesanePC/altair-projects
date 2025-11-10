@@ -57,3 +57,18 @@ $(function() {
         });
     }
 });
+
+document.querySelectorAll('.property-block').forEach(block => {
+  const slides = block.querySelectorAll('.slide');
+  const thumbs = block.querySelectorAll('.thumb');
+  
+  thumbs.forEach((thumb, idx) => {
+    thumb.addEventListener('click', () => {
+      slides.forEach(slide => slide.classList.remove('active'));
+      thumbs.forEach(t => t.classList.remove('active'));
+      
+      slides[idx].classList.add('active');
+      thumb.classList.add('active');
+    });
+  });
+});

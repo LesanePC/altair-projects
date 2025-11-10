@@ -43,84 +43,101 @@
 
 <main id="intro" class="intro" role="main">
     <div class="container">
-        <section class="section menu-section" aria-label="Выбор типа объектов недвижимости">
-            <nav class="menu" role="navigation" aria-label="Категории квартир и помещений">
-                <a href="objects.html" target="_blank"><button class="btn success" type="button">1-комнатные</button></a>
-                <a href="2rooms.html" target="_blank"><button class="btn info" type="button">2-комнатные</button></a>
-                <a href="3rooms.html" target="_blank"><button class="btn warning" type="button">3-комнатные</button></a>
-                <a href="comercial.html" target="_blank"><button class="btn danger" type="button">Коммерческие помещения</button></a>
-                <a href="index.html" target="_blank"><button class="btn default" type="button">Аренда</button></a>
-            </nav>
-        </section>
+        <section class="section menu-section" aria-label="[translate:Выбор типа объектов недвижимости]">
+  <nav class="menu" role="navigation" aria-label="[translate:Категории квартир и помещений]">
+    <a href="objects.html" target="_blank" class="btn success" role="button" type="button">1-комнатные</a>
+    <a href="2rooms.html" target="_blank" class="btn info" role="button" type="button">2-комнатные</a>
+    <a href="3rooms.html" target="_blank" class="btn warning" role="button" type="button">3-комнатные</a>
+    <a href="comercial.html" target="_blank" class="btn danger" role="button" type="button">Коммерческие помещения</a>
+    <a href="index.html" target="_blank" class="btn default" role="button" type="button">Аренда</a>
+  </nav>
+</section>
 
-        <section class="section slider-accordion-section">
-            <div class="wedo">
-                <div class="wedo__item">
-                    <div class="adaptivny-slayder" role="region" aria-label="Слайдер недвижимости">
-                        <input type="radio" name="kadoves" id="slaid1" checked>
-                        <input type="radio" name="kadoves" id="slaid2">
-                        <input type="radio" name="kadoves" id="slaid3">
-                        <input type="radio" name="kadoves" id="slaid4">
-                        <input type="radio" name="kadoves" id="slaid5">
-                        <input type="radio" name="kadoves" id="slaid6">
-                        <input type="radio" name="kadoves" id="slaid7">
-                        <div class="kadoves" role="tablist">
-                            <label for="slaid1" role="tab" tabindex="0" aria-controls="slide1" aria-selected="true"></label>
-                            <label for="slaid2" role="tab" tabindex="-1" aria-controls="slide2" aria-selected="false"></label>
-                            <label for="slaid3" role="tab" tabindex="-1" aria-controls="slide3" aria-selected="false"></label>
-                            <label for="slaid4" role="tab" tabindex="-1" aria-controls="slide4" aria-selected="false"></label>
-                            <label for="slaid5" role="tab" tabindex="-1" aria-controls="slide5" aria-selected="false"></label>
-                            <label for="slaid6" role="tab" tabindex="-1" aria-controls="slide6" aria-selected="false"></label>
-                            <label for="slaid7" role="tab" tabindex="-1" aria-controls="slide7" aria-selected="false"></label>
-                        </div>
-                        <div class="adaptivny-slayder-lasekun">
-                            <div class="abusteku-deagulus">
-                                <img src="img/objects/2.jpg" alt="1-комнатная квартира вид 1">
-                                <img src="img/objects/3.jpg" alt="1-комнатная квартира вид 2">
-                                <img src="img/objects/4.jpg" alt="1-комнатная квартира вид 3">
-                                <img src="img/objects/5.jpg" alt="1-комнатная квартира вид 4">
-                                <img src="img/objects/6.jpg" alt="1-комнатная квартира вид 5">
-                                <img src="img/objects/2.JPG" alt="1-комнатная квартира вид 6">
-                                <img src="img/objects/4.jpg" alt="1-комнатная квартира вид 7">
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="wedo__item">
-                    <div class="accordion" role="presentation">
-                        <div class="accordion__item" data-collapse="#wedo_1">
-                            <div class="accordion__header" role="button" tabindex="0" aria-expanded="false" aria-controls="wedo_1">
-                                <img class="accordion__icon" alt="">
-                                <div class="accordion__title">1-Комнатная квартира</div>
-                            </div>
-                            <div class="accordion__content" id="wedo_1" role="region" aria-hidden="true">
-                                <p>Описание</p>
-                            </div>
-                        </div>
-                        <div class="accordion__item active" data-collapse="#wedo_2">
-                            <div class="accordion__header" role="button" tabindex="0" aria-expanded="true" aria-controls="wedo_2">
-                                <img class="accordion__icon" alt="">
-                                <div class="accordion__title">Описание</div>
-                            </div>
-                            <div class="accordion__content" id="wedo_2" role="region" aria-hidden="false">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            </div>
-                        </div>
-                        <div class="accordion__item" data-collapse="#wedo_3">
-                            <div class="accordion__header" role="button" tabindex="0" aria-expanded="false" aria-controls="wedo_3">
-                                <img class="accordion__icon" alt="">
-                                <div class="accordion__title">Контакты</div>
-                            </div>
-                            <div class="accordion__content" id="wedo_3" role="region" aria-hidden="true">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            </div>
-                        </div>
-                    </div><!-- /.accordion -->
-                </div><!-- /.wedo__item -->
+        <div class="properties-list">
+  <div class="property-block">
+    <div class="gallery">
+      <div class="slides">
+        <img src="img/objects/room1.jpg" alt="Фото квартиры 1" class="slide active">
+        <img src="img/objects/room2.jpg" alt="Фото квартиры 2" class="slide">
+        <img src="img/objects/room3.jpg" alt="Фото квартиры 3" class="slide">
+      </div>
+      <div class="thumbnails">
+        <img src="img/objects/room1.jpg" alt="Фото 1" class="thumb active" data-index="0">
+        <img src="img/objects/room2.jpg" alt="Фото 2" class="thumb" data-index="1">
+        <img src="img/objects/room3.jpg" alt="Фото 3" class="thumb" data-index="2">
+      </div>
+    </div>
 
-            </div><!-- /.wedo -->
-        </section>
+    <div class="description">
+      <h2 class="title">Квартира в центре города</h2>
+      <p class="details">
+        Просторная 3-комнатная квартира с новым ремонтом, полной меблировкой и техникой.  
+        Общая площадь: 85 м².<br>
+        Этаж: 5 из 10.<br>
+        Район: Центр.<br>
+      </p>
+      <p class="price">Стоимость: 15 000 000 ₽</p>
+      <button class="contact-btn">Связаться с нами</button>
+    </div>
+  </div>
+
+  <div class="property-block">
+    <div class="gallery">
+      <div class="slides">
+        <img src="img/objects/room4.jpg" alt="Фото квартиры 1" class="slide active">
+        <img src="img/objects/room5.jpg" alt="Фото квартиры 2" class="slide">
+        <img src="img/objects/room1.jpg" alt="Фото квартиры 3" class="slide">
+      </div>
+      <div class="thumbnails">
+        <img src="img/objects/room4.jpg" alt="Фото 1" class="thumb active" data-index="0">
+        <img src="img/objects/room5.jpg" alt="Фото 2" class="thumb" data-index="1">
+        <img src="img/objects/room1.jpg" alt="Фото 3" class="thumb" data-index="2">
+      </div>
+    </div>
+
+    <div class="description">
+      <h2 class="title">Уютная квартира на окраине</h2>
+      <p class="details">
+        Однокомнатная квартира с балконом и панорамными окнами.  
+        Общая площадь: 45 м².<br>
+        Этаж: 3 из 5.<br>
+        Район: Зеленый берег.<br>
+      </p>
+      <p class="price">Стоимость: 6 500 000 ₽</p>
+      <button class="contact-btn">Связаться с нами</button>
+    </div>
+  </div>
+
+  <div class="property-block">
+    <div class="gallery">
+      <div class="slides">
+        <img src="img/objects/room2.jpg" alt="Фото квартиры 1" class="slide active">
+        <img src="img/objects/room3.jpg" alt="Фото квартиры 2" class="slide">
+        <img src="img/objects/room4.jpg" alt="Фото квартиры 3" class="slide">
+      </div>
+      <div class="thumbnails">
+        <img src="img/objects/room2.jpg" alt="Фото 1" class="thumb active" data-index="0">
+        <img src="img/objects/room3.jpg" alt="Фото 2" class="thumb" data-index="1">
+        <img src="img/objects/room4.jpg" alt="Фото 3" class="thumb" data-index="2">
+      </div>
+    </div>
+
+    <div class="description">
+      <h2 class="title">Современная квартира с дизайнерским ремонтом</h2>
+      <p class="details">
+        Двухкомнатная квартира, полностью меблированная, с современным ремонтом.  
+        Общая площадь: 70 м².<br>
+        Этаж: 7 из 9.<br>
+        Район: Новая Рига.<br>
+      </p>
+      <p class="price">Стоимость: 12 300 000 ₽</p>
+      <button class="contact-btn">Связаться с нами</button>
+    </div>
+  </div>
+</div>
+
+
     </div>
 </main>
 
