@@ -36,6 +36,23 @@ $(function() {
 
         $("html, body").animate({scrollTop: offsetTop}, 700);
     });
+    
+document.querySelectorAll('.menu .btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.menu .btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const type = btn.getAttribute('data-target');
+    document.querySelectorAll('.property-block').forEach(block => {
+      block.style.display = block.getAttribute('data-type') === type ? 'block' : 'none';
+    });
+  });
+});
+
+window.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.property-block').forEach(block => {
+    block.style.display = block.getAttribute('data-type') === '1rooms' ? 'block' : 'none';
+  });
+});
 
     // Переключатель мобильного меню
     $navToggle.on("click", function(e) {
