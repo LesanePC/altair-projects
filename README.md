@@ -49,6 +49,3 @@ git clone https://github.com/lesanepc/altair-projects.git
 - Добавление интерактивных элементов на JavaScript  
 - Оптимизация скорости загрузки и поддержка стабильной работы сайта  
 
-└── assets/
-├── images/
-└── icons/
