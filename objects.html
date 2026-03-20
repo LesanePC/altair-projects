@@ -2,177 +2,492 @@
 <html lang="ru">
 <head>
     <meta charset="utf-8">
-    <link href="https://fonts.googleapis.com/css?family=Cardo:400i|Open+Sans:700|Raleway:300,400,600,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" href="objects.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="index, follow">
+    <meta name="google" content="notranslate">
+    
+    <!-- SEO мета-теги -->
+    <title>Объекты недвижимости | ООО Альтаир Недвижимость | Каталог в Подмосковье</title>
+    <meta name="description" content="Актуальные объекты недвижимости в Подмосковье. Квартиры, дома, коммерческая недвижимость. Ежедневное обновление базы. Помощь в подборе и сопровождение сделок.">
+    <meta name="keywords" content="объекты недвижимости, купить квартиру, продажа домов, аренда офисов, коммерческая недвижимость, каталог недвижимости, Электросталь, Ногинск">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://altair-realty.ru/objects.html">
+    <meta property="og:title" content="Объекты недвижимости | ООО Альтаир Недвижимость">
+    <meta property="og:description" content="Актуальные объекты недвижимости в Подмосковье. Квартиры, дома, коммерческая недвижимость.">
+    <meta property="og:image" content="https://altair-realty.ru/img/og-objects.jpg">
+    
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple.jpg">
     <link rel="icon" type="image/png" sizes="32x32" href="img/32.jpg">
     <link rel="icon" type="image/png" sizes="16x16" href="img/16.jpg">
-    <link rel="manifest" href="img/favicons/site.webmanifest">
+    
     <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
-
-    <meta name="description" content="Риэлторские услуги агентства недвижимости «Альтаир Недвижимость». Покупка, продажа, аренда квартир и коммерческой недвижимости." />
-    <meta name="keywords" content="риэлторские услуги, недвижимость, покупка, продажа, аренда, коммерческая недвижимость, квартиры, новостройки" />
-    <meta name="google" content="notranslate" />
-    <title>ООО Альтаир Недвижимость</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" defer></script>
+    <meta name="theme-color" content="#31344e">
+    
+    <!-- Preconnect для оптимизации -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="objects.css">
 </head>
 <body>
 
-<header class="header" id="header" role="banner">
-    <div class="container">
-        <div class="header__inner">
-            <h1 class="header__logo"><b>ООО АЛЬТАИР НЕДВИЖИМОСТЬ</b></h1>
-            <nav class="nav" id="nav">
-                <a class="nav__link" href="index.html">главная</a>
-                <a class="nav__link" href="objects.html">объекты</a>
-                <a class="nav__link" href="services.html">услуги</a>
-                <a class="nav__link" href="about.html">о нас</a>
-                <a class="nav__link" href="contacts.html">контакты</a>
-            </nav>
-            <button class="burger" type="button" id="navToggle" aria-label="Переключить меню" aria-expanded="false" aria-controls="nav">
-                <span class="burger__item">Menu</span>
-            </button>
-        </div>
-    </div>
-</header>
+    <!-- Skip to content link -->
+    <a href="#main-content" class="skip-link">Перейти к содержанию</a>
 
-<main id="intro" class="intro" role="main">
-    <div class="container">
-        <section class="section menu-section" aria-label="Выбор типа объектов недвижимости">
-            <nav class="menu" role="navigation" aria-label="Категории квартир и помещений">
-                <button class="btn success active" type="button" data-target="1rooms">1-комнатные</button>
-                <button class="btn info" type="button" data-target="2rooms">2-комнатные</button>
-                <button class="btn warning" type="button" data-target="3rooms">3-комнатные</button>
-                <button class="btn danger" type="button" data-target="comercial">Коммерческие помещения</button>
-                <button class="btn default" type="button" data-target="rent">Аренда</button>
-            </nav>
+    <!-- Header -->
+    <header class="header" id="header" role="banner">
+        <div class="container">
+            <div class="header__inner">
+                <a href="index.html" class="header__logo" aria-label="На главную">
+                    <strong>ООО АЛЬТАИР</strong>
+                    <span>Недвижимость</span>
+                </a>
+                
+                <nav class="nav" id="nav" aria-label="Главное меню">
+                    <a class="nav__link" href="index.html">главная</a>
+                    <a class="nav__link nav__link--active" href="objects.html" aria-current="page">объекты</a>
+                    <a class="nav__link" href="services.html">услуги</a>
+                    <a class="nav__link" href="about.html">о нас</a>
+                    <a class="nav__link" href="contacts.html">контакты</a>
+                </nav>
+                
+                <button class="burger" type="button" id="navToggle" 
+                        aria-label="Открыть меню" 
+                        aria-expanded="false" 
+                        aria-controls="nav">
+                    <span class="burger__item"></span>
+                    <span class="burger__text">Меню</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <div class="page-header__content">
+                    <h1 class="page-header__title">Объекты недвижимости</h1>
+                    <div class="page-header__breadcrumbs">
+                        <a href="index.html">Главная</a>
+                        <span class="separator">/</span>
+                        <span class="current">Объекты</span>
+                    </div>
+                    <p class="page-header__description">
+                        В нашем каталоге представлены актуальные объекты недвижимости в Подмосковье.<br>
+                        Ежедневное обновление базы — вы всегда найдете лучший вариант!
+                    </p>
+                </div>
+            </div>
         </section>
 
-        <div class="properties-list">
-            <div class="property-block" data-type="3rooms">
-                <div class="gallery">
-                    <div class="slides">
-                        <img src="img/objects/room1.webp" alt="Фото квартиры 1" class="slide active">
-                        <img src="img/objects/room2.webp" alt="Фото квартиры 2" class="slide">
-                        <img src="img/objects/room3.webp" alt="Фото квартиры 3" class="slide">
-                    </div>
-                    <div class="thumbnails">
-                        <img src="img/objects/room1.webp" alt="Фото 1" class="thumb active" data-index="0">
-                        <img src="img/objects/room2.webp" alt="Фото 2" class="thumb" data-index="1">
-                        <img src="img/objects/room3.webp" alt="Фото 3" class="thumb" data-index="2">
-                    </div>
-                </div>
-                <div class="description">
-                    <h2 class="title">Квартира в центре города</h2>
-                    <p class="details">
-                        Просторная 3-комнатная квартира с новым ремонтом, полной меблировкой и техникой.<br>
-                        Общая площадь: 85 м².<br>
-                        Этаж: 5 из 10.<br>
-                        Район: Центр.<br>
-                    </p>
-                    <p class="price">Стоимость: 15 000 000 ₽</p>
-                    <button class="contact-btn">Связаться с нами</button>
-                </div>
-            </div>
-            <div class="property-block" data-type="1rooms">
-                <div class="gallery">
-                    <div class="slides">
-                        <img src="img/objects/room4.webp" alt="Фото квартиры 1" class="slide active">
-                        <img src="img/objects/room5.webp" alt="Фото квартиры 2" class="slide">
-                        <img src="img/objects/room1.webp" alt="Фото квартиры 3" class="slide">
-                    </div>
-                    <div class="thumbnails">
-                        <img src="img/objects/room4.webp" alt="Фото 1" class="thumb active" data-index="0">
-                        <img src="img/objects/room5.webp" alt="Фото 2" class="thumb" data-index="1">
-                        <img src="img/objects/room1.webp" alt="Фото 3" class="thumb" data-index="2">
-                    </div>
-                </div>
-                <div class="description">
-                    <h2 class="title">Уютная квартира на окраине</h2>
-                    <p class="details">
-                        Однокомнатная квартира с балконом и панорамными окнами.<br>
-                        Общая площадь: 45 м².<br>
-                        Этаж: 3 из 5.<br>
-                        Район: Зеленый берег.<br>
-                    </p>
-                    <p class="price">Стоимость: 6 500 000 ₽</p>
-                    <button class="contact-btn">Связаться с нами</button>
-                </div>
-            </div>
-            <div class="property-block" data-type="2rooms">
-                <div class="gallery">
-                    <div class="slides">
-                        <img src="img/objects/room2.webp" alt="Фото квартиры 1" class="slide active">
-                        <img src="img/objects/room3.webp" alt="Фото квартиры 2" class="slide">
-                        <img src="img/objects/room4.webp" alt="Фото квартиры 3" class="slide">
-                    </div>
-                    <div class="thumbnails">
-                        <img src="img/objects/room2.webp" alt="Фото 1" class="thumb active" data-index="0">
-                        <img src="img/objects/room3.webp" alt="Фото 2" class="thumb" data-index="1">
-                        <img src="img/objects/room4.webp" alt="Фото 3" class="thumb" data-index="2">
-                    </div>
-                </div>
-                <div class="description">
-                    <h2 class="title">Современная квартира с дизайнерским ремонтом</h2>
-                    <p class="details">
-                        Двухкомнатная квартира, полностью меблированная, с современным ремонтом.<br>
-                        Общая площадь: 70 м².<br>
-                        Этаж: 7 из 9.<br>
-                        Район: Новая Рига.<br>
-                    </p>
-                    <p class="price">Стоимость: 12 300 000 ₽</p>
-                    <button class="contact-btn">Связаться с нами</button>
+        <!-- Category Menu -->
+        <section class="category-section">
+            <div class="container">
+                <div class="category-menu">
+                    <button class="category-btn active" data-target="all">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="14" width="7" height="7"></rect>
+                            <rect x="3" y="14" width="7" height="7"></rect>
+                        </svg>
+                        Все объекты
+                    </button>
+                    <button class="category-btn" data-target="1rooms">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2h-14a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                        1-комнатные
+                    </button>
+                    <button class="category-btn" data-target="2rooms">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2h-14a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                        2-комнатные
+                    </button>
+                    <button class="category-btn" data-target="3rooms">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2h-14a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                        3-комнатные
+                    </button>
+                    <button class="category-btn" data-target="comercial">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
+                        Коммерческая
+                    </button>
+                    <button class="category-btn" data-target="rent">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        Аренда
+                    </button>
                 </div>
             </div>
-            
-        </div>
-    </div>
-</main>
+        </section>
 
-<footer class="footer">
-    <div class="container">
-        <div class="footer__inner">
-            <div class="footer__block">
-                <h4 class="footer__title">Наш Адрес</h4>
-                <address class="footer__address">
-                    <div>ул. Николаева, 54</div>
-                    <div>Электросталь, Московская обл.,<br>Россия, 144012</div>
-                </address>
-            </div>
-
-            <div class="footer__block">
-                <h4 class="footer__title">Наш E-MAIL</h4>
-                <div class="social  social--footer">
-                    <div class="footer__text">
-                        <p>altair-stars@bk.ru</p>
+        <!-- Properties Grid -->
+        <section class="properties-section">
+            <div class="container">
+                <div class="properties-grid" id="propertiesGrid">
+                    
+                    <!-- 3-комнатная квартира -->
+                    <div class="property-card" data-type="3rooms">
+                        <div class="property-card__badges">
+                            <span class="badge badge--buy">Продажа</span>
+                            <span class="badge badge--premium">Премиум</span>
+                        </div>
+                        <div class="property-gallery">
+                            <div class="gallery-slides">
+                                <img src="img/objects/room1.webp" alt="Квартира в центре - гостиная" class="gallery-slide active">
+                                <img src="img/objects/room2.webp" alt="Квартира в центре - кухня" class="gallery-slide">
+                                <img src="img/objects/room3.webp" alt="Квартира в центре - спальня" class="gallery-slide">
+                            </div>
+                            <div class="gallery-thumbnails">
+                                <img src="img/objects/room1.webp" alt="Фото 1" class="gallery-thumb active" data-index="0">
+                                <img src="img/objects/room2.webp" alt="Фото 2" class="gallery-thumb" data-index="1">
+                                <img src="img/objects/room3.webp" alt="Фото 3" class="gallery-thumb" data-index="2">
+                            </div>
+                            <button class="gallery-nav gallery-prev" aria-label="Предыдущее фото">‹</button>
+                            <button class="gallery-nav gallery-next" aria-label="Следующее фото">›</button>
+                        </div>
+                        <div class="property-card__content">
+                            <h3 class="property-card__title">Квартира в центре города</h3>
+                            <p class="property-card__address">г. Электросталь, ул. Ленина, 15</p>
+                            <div class="property-card__features">
+                                <span class="feature">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+                                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                                    </svg>
+                                    85 м²
+                                </span>
+                                <span class="feature">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                    </svg>
+                                    3 комн.
+                                </span>
+                                <span class="feature">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2h-14a2 2 0 0 1-2-2z"></path>
+                                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                                    </svg>
+                                    5 этаж
+                                </span>
+                            </div>
+                            <p class="property-card__description">
+                                Просторная 3-комнатная квартира с новым ремонтом, полной меблировкой и техникой. 
+                                Панорамные окна, современная планировка.
+                            </p>
+                            <div class="property-card__price">15 000 000 ₽</div>
+                            <div class="property-card__footer">
+                                <button class="btn btn-primary btn-sm contact-btn" data-property="Квартира в центре города">Связаться</button>
+                                <button class="btn-favorite" aria-label="Добавить в избранное">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="footer__block">
-                <h4 class="footer__title">Тел. номер</h4>
-                <div class="footer__text">
-                    <p>+7(916) 817-47-88</p>
+                    <!-- 1-комнатная квартира -->
+                    <div class="property-card" data-type="1rooms">
+                        <div class="property-card__badges">
+                            <span class="badge badge--buy">Продажа</span>
+                            <span class="badge badge--popular">Популярное</span>
+                        </div>
+                        <div class="property-gallery">
+                            <div class="gallery-slides">
+                                <img src="img/objects/room4.webp" alt="Уютная квартира - гостиная" class="gallery-slide active">
+                                <img src="img/objects/room5.webp" alt="Уютная квартира - кухня" class="gallery-slide">
+                                <img src="img/objects/room6.webp" alt="Уютная квартира - балкон" class="gallery-slide">
+                            </div>
+                            <div class="gallery-thumbnails">
+                                <img src="img/objects/room4.webp" alt="Фото 1" class="gallery-thumb active" data-index="0">
+                                <img src="img/objects/room5.webp" alt="Фото 2" class="gallery-thumb" data-index="1">
+                                <img src="img/objects/room6.webp" alt="Фото 3" class="gallery-thumb" data-index="2">
+                            </div>
+                            <button class="gallery-nav gallery-prev" aria-label="Предыдущее фото">‹</button>
+                            <button class="gallery-nav gallery-next" aria-label="Следующее фото">›</button>
+                        </div>
+                        <div class="property-card__content">
+                            <h3 class="property-card__title">Уютная квартира на окраине</h3>
+                            <p class="property-card__address">г. Электросталь, ул. Мира, 8</p>
+                            <div class="property-card__features">
+                                <span class="feature">45 м²</span>
+                                <span class="feature">1 комн.</span>
+                                <span class="feature">3 этаж</span>
+                            </div>
+                            <p class="property-card__description">
+                                Однокомнатная квартира с балконом и панорамными окнами. 
+                                Свежий ремонт, новая сантехника. Тихий район, развитая инфраструктура.
+                            </p>
+                            <div class="property-card__price">6 500 000 ₽</div>
+                            <div class="property-card__footer">
+                                <button class="btn btn-primary btn-sm contact-btn" data-property="Уютная квартира на окраине">Связаться</button>
+                                <button class="btn-favorite" aria-label="Добавить в избранное">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2-комнатная квартира -->
+                    <div class="property-card" data-type="2rooms">
+                        <div class="property-card__badges">
+                            <span class="badge badge--buy">Продажа</span>
+                            <span class="badge badge--design">Дизайн</span>
+                        </div>
+                        <div class="property-gallery">
+                            <div class="gallery-slides">
+                                <img src="img/objects/room7.webp" alt="Современная квартира - гостиная" class="gallery-slide active">
+                                <img src="img/objects/room8.webp" alt="Современная квартира - спальня" class="gallery-slide">
+                                <img src="img/objects/room4.webp" alt="Современная квартира - кухня" class="gallery-slide">
+                            </div>
+                            <div class="gallery-thumbnails">
+                                <img src="img/objects/room7.webp" alt="Фото 1" class="gallery-thumb active" data-index="0">
+                                <img src="img/objects/room8.webp" alt="Фото 2" class="gallery-thumb" data-index="1">
+                                <img src="img/objects/room4.webp" alt="Фото 3" class="gallery-thumb" data-index="2">
+                            </div>
+                            <button class="gallery-nav gallery-prev" aria-label="Предыдущее фото">‹</button>
+                            <button class="gallery-nav gallery-next" aria-label="Следующее фото">›</button>
+                        </div>
+                        <div class="property-card__content">
+                            <h3 class="property-card__title">Современная квартира с дизайнерским ремонтом</h3>
+                            <p class="property-card__address">г. Ногинск, ул. Комсомольская, 22</p>
+                            <div class="property-card__features">
+                                <span class="feature">70 м²</span>
+                                <span class="feature">2 комн.</span>
+                                <span class="feature">7 этаж</span>
+                            </div>
+                            <p class="property-card__description">
+                                Двухкомнатная квартира, полностью меблированная, с современным ремонтом. 
+                                Дизайнерский интерьер, встроенная техника премиум-класса.
+                            </p>
+                            <div class="property-card__price">12 300 000 ₽</div>
+                            <div class="property-card__footer">
+                                <button class="btn btn-primary btn-sm contact-btn" data-property="Современная квартира с дизайнерским ремонтом">Связаться</button>
+                                <button class="btn-favorite" aria-label="Добавить в избранное">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Коммерческая недвижимость -->
+                    <div class="property-card" data-type="comercial">
+                        <div class="property-card__badges">
+                            <span class="badge badge--commercial">Коммерческая</span>
+                            <span class="badge badge--business">Бизнес</span>
+                        </div>
+                        <div class="property-gallery">
+                            <div class="gallery-slides">
+                                <img src="img/objects/room9.webp" alt="Торговое помещение" class="gallery-slide active">
+                                <img src="img/objects/room10.webp" alt="Внутреннее помещение" class="gallery-slide">
+                            </div>
+                            <div class="gallery-thumbnails">
+                                <img src="img/objects/room9.webp" alt="Фото 1" class="gallery-thumb active" data-index="0">
+                                <img src="img/objects/room10.webp" alt="Фото 2" class="gallery-thumb" data-index="1">
+                            </div>
+                            <button class="gallery-nav gallery-prev" aria-label="Предыдущее фото">‹</button>
+                            <button class="gallery-nav gallery-next" aria-label="Следующее фото">›</button>
+                        </div>
+                        <div class="property-card__content">
+                            <h3 class="property-card__title">Торговое помещение в центре</h3>
+                            <p class="property-card__address">г. Электросталь, пр. Ленина, 45</p>
+                            <div class="property-card__features">
+                                <span class="feature">120 м²</span>
+                                <span class="feature">1 этаж</span>
+                                <span class="feature">Отдельный вход</span>
+                            </div>
+                            <p class="property-card__description">
+                                Отличное торговое помещение с высоким пешеходным трафиком. 
+                                Подходит для магазина, салона красоты, кафе.
+                            </p>
+                            <div class="property-card__price">85 000 ₽/мес</div>
+                            <div class="property-card__footer">
+                                <button class="btn btn-primary btn-sm contact-btn" data-property="Торговое помещение в центре">Связаться</button>
+                                <button class="btn-favorite" aria-label="Добавить в избранное">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Аренда квартиры -->
+                    <div class="property-card" data-type="rent">
+                        <div class="property-card__badges">
+                            <span class="badge badge--rent">Аренда</span>
+                            <span class="badge badge--comfort">Комфорт</span>
+                        </div>
+                        <div class="property-gallery">
+                            <div class="gallery-slides">
+                                <img src="img/objects/room6.webp" alt="Квартира в аренду" class="gallery-slide active">
+                                <img src="img/objects/room5.webp" alt="Интерьер" class="gallery-slide">
+                            </div>
+                            <div class="gallery-thumbnails">
+                                <img src="img/objects/room6.webp" alt="Фото 1" class="gallery-thumb active" data-index="0">
+                                <img src="img/objects/room5.webp" alt="Фото 2" class="gallery-thumb" data-index="1">
+                            </div>
+                            <button class="gallery-nav gallery-prev" aria-label="Предыдущее фото">‹</button>
+                            <button class="gallery-nav gallery-next" aria-label="Следующее фото">›</button>
+                        </div>
+                        <div class="property-card__content">
+                            <h3 class="property-card__title">Светлая 2-комнатная квартира</h3>
+                            <p class="property-card__address">г. Электросталь, ул. Спортивная, 12</p>
+                            <div class="property-card__features">
+                                <span class="feature">58 м²</span>
+                                <span class="feature">2 комн.</span>
+                                <span class="feature">4 этаж</span>
+                            </div>
+                            <p class="property-card__description">
+                                Уютная квартира с современной мебелью и бытовой техникой. 
+                                Рядом школа, детский сад, парк.
+                            </p>
+                            <div class="property-card__price">35 000 ₽/мес</div>
+                            <div class="property-card__footer">
+                                <button class="btn btn-primary btn-sm contact-btn" data-property="Светлая 2-комнатная квартира">Связаться</button>
+                                <button class="btn-favorite" aria-label="Добавить в избранное">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- No results message -->
+                <div class="no-results" id="noResults" style="display: none;">
+                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <h3>Ничего не найдено</h3>
+                    <p>В данной категории пока нет объектов</p>
+                    <button class="btn btn-primary" id="showAllBtn">Показать все объекты</button>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="copyright">
+        </section>
+
+        <!-- Callback Section -->
+        <section class="callback-section">
+            <div class="container">
+                <div class="callback__inner">
+                    <h2 class="callback__title">Не нашли подходящий вариант?</h2>
+                    <p class="callback__description">Оставьте заявку и мы подберем для вас лучшие объекты</p>
+                    
+                    <form class="callback__form callback__form--inline" id="callbackForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="name" placeholder="Ваше имя" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" class="form-control" name="phone" placeholder="+7 (___) ___-__-__" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Подобрать объекты</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
         <div class="container">
-            <div class="copyright__text">
-                <div>© 2023 Альтаир Недвижимость. All Rights Reserved</div>
-                <div>Made <span>by Fokin Eugene</span></div>
+            <div class="footer__grid">
+                <div class="footer__block">
+                    <h3 class="footer__title">Контакты</h3>
+                    <address class="footer__address">
+                        <p>ул. Николаева, 54<br>Электросталь, Московская обл., 144012</p>
+                        <p><a href="tel:+79168174788">+7 (916) 817-47-88</a></p>
+                        <p><a href="mailto:altair-stars@bk.ru">altair-stars@bk.ru</a></p>
+                    </address>
+                </div>
+                
+                <div class="footer__block">
+                    <h3 class="footer__title">Режим работы</h3>
+                    <div class="footer__schedule">
+                        <p>Пн-Пт: 09:00 - 20:00</p>
+                        <p>Сб: 10:00 - 18:00</p>
+                        <p>Вс: выходной</p>
+                    </div>
+                </div>
+                
+                <div class="footer__block">
+                    <h3 class="footer__title">Мы в соцсетях</h3>
+                    <div class="footer__social">
+                        <a href="#" class="footer__social-link" aria-label="VK">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M21.547 7.107c.104-.362 0-.607-.5-.607h-1.845c-.417 0-.61.215-.715.452 0 0-.836 1.998-2.02 3.297-.382.375-.556.494-.764.494-.104 0-.255-.119-.255-.48V7.107c0-.43-.125-.607-.484-.607h-2.857c-.278 0-.445.196-.445.386 0 .41.632.504.695 1.656v2.5c0 .55-.102.65-.326.65-.764 0-2.62-2.757-3.72-5.913-.215-.62-.43-.852-.852-.868H5.28c-.486 0-.584.226-.584.452 0 .425.593 2.53 2.76 5.32 1.446 2.054 3.48 3.166 5.335 3.166 1.112 0 1.25-.246 1.25-.668v-1.54c0-.487.104-.584.45-.584.255 0 .694.125 1.716 1.09 1.172 1.15 1.364 1.664 2.024 1.664h1.846c.486 0 .73-.246.59-.73-.153-.476-.705-1.166-1.437-1.986-.398-.465-.995-.966-1.176-1.217-.253-.33-.18-.477 0-.77 0 0 2.078-2.88 2.294-3.857z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="footer__social-link" aria-label="Telegram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.065-1.226-.46-1.901-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.176-.183 3.236-2.967 3.295-3.22.007-.032.014-.15-.056-.212-.07-.063-.174-.04-.249-.024-.106.022-1.793 1.14-5.062 3.345-.48.33-.915.49-1.302.48-.428-.01-1.252-.242-1.865-.44-.752-.244-1.35-.373-1.298-.788.027-.215.324-.435.89-.66 3.504-1.527 5.84-2.532 7.008-3.015 3.337-1.382 4.03-1.622 4.482-1.63.1-.001.322.023.466.14.122.099.156.234.17.368.014.134.01.323-.006.413z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="footer__social-link" aria-label="WhatsApp">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.277-.589c.925.478 1.927.73 3.054.73 3.18 0 5.767-2.586 5.768-5.766.001-3.18-2.585-5.767-5.766-5.767zm3.247 8.448c-.099.212-.206.333-.388.527-.182.194-.389.324-.653.397-.264.073-.502.11-.796.11-.294 0-.586-.037-.86-.11-.273-.073-.537-.194-.78-.33-.242-.136-.44-.303-.64-.495-.2-.192-.37-.409-.527-.65-.156-.242-.27-.505-.353-.78-.082-.274-.123-.56-.123-.848 0-.27.041-.53.11-.78.07-.25.175-.48.316-.69.14-.21.306-.39.495-.54.19-.15.4-.27.63-.35.23-.08.48-.12.73-.12.28 0 .54.04.79.12.25.08.48.2.69.35.21.15.39.33.54.54.15.21.27.44.35.69.08.25.12.51.12.78 0 .16-.02.33-.05.49-.03.16-.08.31-.14.46-.06.15-.14.29-.23.43-.09.14-.19.27-.3.39-.11.12-.24.23-.38.33-.14.1-.29.18-.46.24-.17.06-.34.09-.52.09-.18 0-.35-.03-.52-.09-.17-.06-.32-.14-.46-.24-.14-.1-.27-.21-.38-.33-.11-.12-.2-.25-.28-.39-.08-.14-.13-.29-.17-.44-.04-.15-.06-.31-.06-.47 0-.32.06-.63.18-.92.12-.29.29-.54.51-.74.22-.2.48-.35.78-.44.3-.09.61-.09.91 0 .3.09.56.24.78.44.22.2.39.45.51.74.12.29.18.6.18.92 0 .27-.05.53-.15.78-.1.25-.24.48-.42.69-.18.21-.4.38-.66.51-.26.13-.55.2-.87.2-.33 0-.64-.07-.94-.21-.3-.14-.56-.34-.78-.59-.22-.25-.39-.55-.51-.89-.12-.34-.18-.7-.18-1.07 0-.54.14-1.05.41-1.51.27-.46.65-.84 1.12-1.12.47-.28 1-.42 1.6-.42.55 0 1.07.14 1.52.41.45.27.82.65 1.08 1.12.26.47.39.99.39 1.55 0 .56-.13 1.08-.39 1.55-.26.47-.63.85-1.08 1.12-.45.27-.97.41-1.52.41-.27 0-.53-.03-.78-.09-.25-.06-.49-.15-.71-.27-.22-.12-.42-.27-.6-.44-.18-.17-.33-.37-.45-.59-.12-.22-.21-.46-.27-.71-.06-.25-.09-.51-.09-.78z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</footer>
+        
+        <div class="copyright">
+            <div class="container">
+                <div class="copyright__content">
+                    <p>© 2023 ООО "Альтаир Недвижимость". Все права защищены</p>
+                    <p><a href="privacy.html">Политика конфиденциальности</a></p>
+                    <p>Разработка: <a href="https://github.com/fokinevgeny">Евгений Фокин</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Кнопка "Наверх" -->
+        <button class="scroll-top" aria-label="Наверх" id="scrollTop">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="18 15 12 9 6 15"></polyline>
+            </svg>
+        </button>
+    </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-<script src="app.js" defer></script>
+    <!-- Scripts -->
+    <script src="app.js"></script>
+    <script src="object.js"></script>
+    
 </body>
 </html>

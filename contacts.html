@@ -2,118 +2,345 @@
 <html lang="ru">
 <head>
     <meta charset="utf-8">
-    <link href="https://fonts.googleapis.com/css?family=Cardo:400i|Open+Sans:700|Raleway:300,400,600,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" href="contacts.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="index, follow">
+    <meta name="google" content="notranslate">
+    
+    <!-- SEO мета-теги -->
+    <title>Контакты | ООО Альтаир Недвижимость | Электросталь</title>
+    <meta name="description" content="Контактная информация агентства недвижимости Альтаир в Электростали. Адрес: ул. Николаева, 54. Телефон: +7 (916) 817-47-88. Режим работы, схема проезда, обратная связь.">
+    <meta name="keywords" content="контакты, адрес, телефон, как добраться, схема проезда, обратная связь, Электросталь">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://altair-realty.ru/contacts.html">
+    <meta property="og:title" content="Контакты | ООО Альтаир Недвижимость">
+    <meta property="og:description" content="Контактная информация агентства недвижимости в Электростали">
+    <meta property="og:image" content="https://altair-realty.ru/img/og-contacts.jpg">
+    
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple.jpg">
     <link rel="icon" type="image/png" sizes="32x32" href="img/32.jpg">
     <link rel="icon" type="image/png" sizes="16x16" href="img/16.jpg">
-    <link rel="manifest" href="img/favicons/site.webmanifest">
+    
     <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
-
-    <meta name="description" content="Описание страницы" />
-    <meta name="keywords" content="создание сайтов, верстка сайтов" />
-    <meta name="google" content="notranslate" />
-    <title>ООО Альтаир Недвижимость</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <meta name="theme-color" content="#31344e">
+    
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="contacts.css">
 </head>
 <body>
 
-<!-- Header -->
-<header class="header" id="header">
-    <div class="container">
-        <div class="header__inner">
-            <div class="header__logo"><b>ООО АЛЬТАИР НЕДВИЖИМОСТЬ</b></div>
-            <nav class="nav" id="nav">
-                <a class="nav__link" href="index.html">главная</a>
-                <a class="nav__link" href="objects.html">объекты</a>
-                <a class="nav__link" href="services.html">услуги</a>
-                <a class="nav__link" href="about.html">о нас</a>
-                <a class="nav__link" href="contacts.html">контакты</a>
-            </nav>
-            <button class="burger" type="button" id="navToggle">
-                <span class="burger__item">Menu</span>
-            </button>
-        </div>
-    </div>
-</header>
+    <!-- Skip to content link -->
+    <a href="#main-content" class="skip-link">Перейти к содержанию</a>
 
-<!-- Intro -->
-<div class="intro" id="intro">
-    <div class="container">
-        <div class="intro__inner">
-            <h1 class="intro__title">Как нас найти?</h1>
-            <h2 class="intro__subtitle">Электросталь, ул. Николаева, 54</h2>
-        </div>
-        <div class="intro__inner">
-            <h1 class="intro__title">Контакты:</h1>
-            <h2 class="intro__subtitle">Тел.: +7(916) 817-47-88<br>E-mail: altair-stars@bk.ru<br>https://vk.com/altair_property</h2>
-        </div>
-        <div class="intro__inner">
-            <h1 class="intro__title">Часы работы:</h1>
-            <h2 class="intro__subtitle"><br>Понедельник 10:00 – 18:00<br>Вторник 10:00 – 18:00<br>Среда 10:00 – 18:00<br>Четверг 10:00 – 18:00<br>Пятница 10:00 – 18:00<br>Суббота Выходной<br>Воскресенье Выходной</h2>
-        </div>
-    </div><!-- /.container -->
-</div><!-- /.intro -->
-
-<!-- Карта и отзывы -->
-<div class="container">
-    <div class="maps">
-        <div style="position:relative;overflow:hidden;">
-            <a href="https://yandex.ru/maps/org/altair_nedvizhimost/210361291587/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Альтаир Недвижимость</a>
-            <a href="https://yandex.ru/maps/20523/elektrostal/category/real_estate_agency/184107503/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:14px;">Агентство недвижимости в Электростали</a>
-            <iframe src="https://yandex.ru/map-widget/v1/?ll=38.441669%2C55.778943&mode=search&oid=210361291587&ol=biz&z=16.64" width="550" height="450" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe>
-        </div>
-        <div style="width:550px;height:385px;overflow:hidden;position:relative;">
-            <iframe style="width:100%;height:100%;border:1px solid #e6e6e6;border-radius:8px;box-sizing:border-box" src="https://yandex.ru/maps-reviews-widget/210361291587?comments"></iframe>
-            <a href="https://yandex.com/maps/org/altair_nedvizhimost/210361291587/" target="_blank" style="box-sizing:border-box;text-decoration:none;color:#b3b3b3;font-size:10px;font-family:YS Text,sans-serif;padding:0 20px;position:absolute;bottom:8px;width:100%;text-align:center;left:0;overflow:hidden;text-overflow:ellipsis;display:block;max-height:14px;white-space:nowrap;padding:0 16px;box-sizing:border-box">Альтаир Недвижимость на карте Электростали — Яндекс Карты</a>
-        </div>
-    </div>
-</div>
-
-<!-- Footer -->
-<footer class="footer">
-    <div class="container">
-        <div class="footer__inner">
-            <div class="footer__block">
-                <h4 class="footer__title">Наш Адрес</h4>
-                <address class="footer__address">
-                    <div>ул. Николаева, 54</div>
-                    <div>Электросталь, Московская обл.,<br>Россия, 144012</div>
-                </address>
+    <!-- Header -->
+    <header class="header" id="header" role="banner">
+        <div class="container">
+            <div class="header__inner">
+                <a href="index.html" class="header__logo" aria-label="На главную">
+                    <strong>ООО АЛЬТАИР</strong>
+                    <span>Недвижимость</span>
+                </a>
+                
+                <nav class="nav" id="nav" aria-label="Главное меню">
+                    <a class="nav__link" href="index.html">главная</a>
+                    <a class="nav__link" href="objects.html">объекты</a>
+                    <a class="nav__link" href="services.html">услуги</a>
+                    <a class="nav__link" href="about.html">о нас</a>
+                    <a class="nav__link nav__link--active" href="contacts.html" aria-current="page">контакты</a>
+                </nav>
+                
+                <button class="burger" type="button" id="navToggle" 
+                        aria-label="Открыть меню" 
+                        aria-expanded="false" 
+                        aria-controls="nav">
+                    <span class="burger__item"></span>
+                    <span class="burger__text">Меню</span>
+                </button>
             </div>
-            <div class="footer__block">
-                <h4 class="footer__title">Наш E-MAIL</h4>
-                <div class="social social--footer">
-                    <div class="footer__text">
-                        <p>altair-stars@bk.ru</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <div class="page-header__content">
+                    <h1 class="page-header__title">Контакты</h1>
+                    <div class="page-header__breadcrumbs">
+                        <a href="index.html">Главная</a>
+                        <span class="separator">/</span>
+                        <span class="current">Контакты</span>
+                    </div>
+                    <p class="page-header__description">
+                        Свяжитесь с нами любым удобным способом
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Info Grid -->
+        <section class="contact-info-section">
+            <div class="container">
+                <div class="contact-info-grid">
+                    <div class="contact-card">
+                        <div class="contact-card__icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
+                        <h3>Наш адрес</h3>
+                        <p>г. Электросталь, ул. Николаева, 54<br>1 этаж, офис 24Б</p>
+                        <a href="https://yandex.ru/maps/20523/elektrostal/house/ulitsa_nikolaeva_54/Z0kYdAJgS0EDQFtsfXx2cnxrYw==/" target="_blank" class="contact-link">Схема проезда →</a>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-card__icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                        </div>
+                        <h3>Телефон</h3>
+                        <p><a href="tel:+79168174788">+7 (916) 817-47-88</a></p>
+                        <p class="contact-note">Пн-Пт: 09:00 - 20:00<br>Сб: 10:00 - 18:00</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-card__icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </div>
+                        <h3>Email</h3>
+                        <p><a href="mailto:altair-stars@bk.ru">altair-stars@bk.ru</a></p>
+                        <p class="contact-note">Отвечаем в течение 24 часов</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-card__icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </div>
+                        <h3>Режим работы</h3>
+                        <p>Понедельник - Пятница: 09:00 - 20:00<br>Суббота: 10:00 - 18:00<br>Воскресенье: выходной</p>
                     </div>
                 </div>
             </div>
-            <div class="footer__block">
-                <h4 class="footer__title">Тел. номер</h4>
-                <div class="footer__text">
-                    <p>+7(916) 817-47-88</p>
+        </section>
+
+        <!-- Map Section -->
+        <section class="map-section">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Как нас найти</h2>
+                    <p class="section__description">Мы находимся в центре города</p>
+                </div>
+                
+                <div class="map-container">
+                    <div class="map-wrapper">
+                        <iframe 
+                            src="https://yandex.ru/map-widget/v1/?ll=38.441669%2C55.778943&mode=search&oid=210361291587&ol=biz&z=16.64" 
+                            width="100%" 
+                            height="450" 
+                            frameborder="0" 
+                            allowfullscreen="true" 
+                            style="border:0; border-radius: 16px;">
+                        </iframe>
+                    </div>
+                    
+                    <div class="map-address">
+                        <div class="address-info">
+                            <h3>Как добраться:</h3>
+                            <ul>
+                                <li><strong>На автомобиле:</strong> От МКАД по Горьковскому шоссе до Электростали, поворот на ул. Николаева</li>
+                                <li><strong>Общественным транспортом:</strong> Маршрутное такси № 322, 329 до остановки "Улица Николаева"</li>
+                                <li><strong>На электричке:</strong> С Курского вокзала до станции "Электросталь", далее пешком 10 минут</li>
+                            </ul>
+                            <a href="https://yandex.ru/maps/20523/elektrostal/house/ulitsa_nikolaeva_54/Z0kYdAJgS0EDQFtsfXx2cnxrYw==/" target="_blank" class="btn btn-outline btn-sm">Открыть в Яндекс.Картах →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Widget -->
+        <section class="reviews-widget-section">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Отзывы наших клиентов</h2>
+                    <p class="section__description">Что говорят о нас на Яндекс.Картах</p>
+                </div>
+                
+                <div class="reviews-widget">
+                    <div style="width:100%; height:400px; overflow:hidden; position:relative; border-radius: 16px;">
+                        <iframe 
+                            style="width:100%; height:100%; border:1px solid #e6e6e6; border-radius:16px; box-sizing:border-box" 
+                            src="https://yandex.ru/maps-reviews-widget/210361291587?comments"
+                            frameborder="0">
+                        </iframe>
+                        <a href="https://yandex.com/maps/org/altair_nedvizhimost/210361291587/" 
+                           target="_blank" 
+                           style="box-sizing:border-box; text-decoration:none; color:#b3b3b3; font-size:10px; font-family:YS Text,sans-serif; padding:0 20px; position:absolute; bottom:8px; width:100%; text-align:center; left:0; overflow:hidden; text-overflow:ellipsis; display:block; max-height:14px; white-space:nowrap; padding:0 16px; box-sizing:border-box">
+                            Альтаир Недвижимость на карте Электростали — Яндекс Карты
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Callback Form -->
+        <section class="callback-section" id="callback">
+            <div class="container">
+                <div class="callback__inner">
+                    <h2 class="callback__title">Свяжитесь с нами</h2>
+                    <p class="callback__description">Оставьте сообщение, и мы ответим в ближайшее время</p>
+                    
+                    <form class="callback__form" id="callbackForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="name" placeholder="Ваше имя" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" class="form-control" name="phone" placeholder="+7 (___) ___-__-__" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" placeholder="Ваш email">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="subject" placeholder="Тема сообщения">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="message" rows="5" placeholder="Ваше сообщение" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Отправить сообщение</button>
+                        <p class="callback__agree">
+                            Нажимая кнопку, вы соглашаетесь с 
+                            <a href="privacy.html">политикой обработки персональных данных</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Section -->
+        <section class="social-section">
+            <div class="container">
+                <div class="social-content">
+                    <h2>Мы в социальных сетях</h2>
+                    <p>Подписывайтесь, чтобы быть в курсе актуальных предложений</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="VK">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M21.547 7.107c.104-.362 0-.607-.5-.607h-1.845c-.417 0-.61.215-.715.452 0 0-.836 1.998-2.02 3.297-.382.375-.556.494-.764.494-.104 0-.255-.119-.255-.48V7.107c0-.43-.125-.607-.484-.607h-2.857c-.278 0-.445.196-.445.386 0 .41.632.504.695 1.656v2.5c0 .55-.102.65-.326.65-.764 0-2.62-2.757-3.72-5.913-.215-.62-.43-.852-.852-.868H5.28c-.486 0-.584.226-.584.452 0 .425.593 2.53 2.76 5.32 1.446 2.054 3.48 3.166 5.335 3.166 1.112 0 1.25-.246 1.25-.668v-1.54c0-.487.104-.584.45-.584.255 0 .694.125 1.716 1.09 1.172 1.15 1.364 1.664 2.024 1.664h1.846c.486 0 .73-.246.59-.73-.153-.476-.705-1.166-1.437-1.986-.398-.465-.995-.966-1.176-1.217-.253-.33-.18-.477 0-.77 0 0 2.078-2.88 2.294-3.857z"/>
+                            </svg>
+                            <span>ВКонтакте</span>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Telegram">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.065-1.226-.46-1.901-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.176-.183 3.236-2.967 3.295-3.22.007-.032.014-.15-.056-.212-.07-.063-.174-.04-.249-.024-.106.022-1.793 1.14-5.062 3.345-.48.33-.915.49-1.302.48-.428-.01-1.252-.242-1.865-.44-.752-.244-1.35-.373-1.298-.788.027-.215.324-.435.89-.66 3.504-1.527 5.84-2.532 7.008-3.015 3.337-1.382 4.03-1.622 4.482-1.63.1-.001.322.023.466.14.122.099.156.234.17.368.014.134.01.323-.006.413z"/>
+                            </svg>
+                            <span>Telegram</span>
+                        </a>
+                        <a href="#" class="social-link" aria-label="WhatsApp">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.277-.589c.925.478 1.927.73 3.054.73 3.18 0 5.767-2.586 5.768-5.766.001-3.18-2.585-5.767-5.766-5.767z"/>
+                            </svg>
+                            <span>WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__block">
+                    <h3 class="footer__title">Контакты</h3>
+                    <address class="footer__address">
+                        <p>ул. Николаева, 54<br>Электросталь, Московская обл., 144012</p>
+                        <p><a href="tel:+79168174788">+7 (916) 817-47-88</a></p>
+                        <p><a href="mailto:altair-stars@bk.ru">altair-stars@bk.ru</a></p>
+                    </address>
+                </div>
+                
+                <div class="footer__block">
+                    <h3 class="footer__title">Режим работы</h3>
+                    <div class="footer__schedule">
+                        <p>Пн-Пт: 09:00 - 20:00</p>
+                        <p>Сб: 10:00 - 18:00</p>
+                        <p>Вс: выходной</p>
+                    </div>
+                </div>
+                
+                <div class="footer__block">
+                    <h3 class="footer__title">Мы в соцсетях</h3>
+                    <div class="footer__social">
+                        <a href="#" class="footer__social-link" aria-label="VK">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M21.547 7.107c.104-.362 0-.607-.5-.607h-1.845c-.417 0-.61.215-.715.452 0 0-.836 1.998-2.02 3.297-.382.375-.556.494-.764.494-.104 0-.255-.119-.255-.48V7.107c0-.43-.125-.607-.484-.607h-2.857c-.278 0-.445.196-.445.386 0 .41.632.504.695 1.656v2.5c0 .55-.102.65-.326.65-.764 0-2.62-2.757-3.72-5.913-.215-.62-.43-.852-.852-.868H5.28c-.486 0-.584.226-.584.452 0 .425.593 2.53 2.76 5.32 1.446 2.054 3.48 3.166 5.335 3.166 1.112 0 1.25-.246 1.25-.668v-1.54c0-.487.104-.584.45-.584.255 0 .694.125 1.716 1.09 1.172 1.15 1.364 1.664 2.024 1.664h1.846c.486 0 .73-.246.59-.73-.153-.476-.705-1.166-1.437-1.986-.398-.465-.995-.966-1.176-1.217-.253-.33-.18-.477 0-.77 0 0 2.078-2.88 2.294-3.857z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="footer__social-link" aria-label="Telegram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.065-1.226-.46-1.901-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.176-.183 3.236-2.967 3.295-3.22.007-.032.014-.15-.056-.212-.07-.063-.174-.04-.249-.024-.106.022-1.793 1.14-5.062 3.345-.48.33-.915.49-1.302.48-.428-.01-1.252-.242-1.865-.44-.752-.244-1.35-.373-1.298-.788.027-.215.324-.435.89-.66 3.504-1.527 5.84-2.532 7.008-3.015 3.337-1.382 4.03-1.622 4.482-1.63.1-.001.322.023.466.14.122.099.156.234.17.368.014.134.01.323-.006.413z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="footer__social-link" aria-label="WhatsApp">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.277-.589c.925.478 1.927.73 3.054.73 3.18 0 5.767-2.586 5.768-5.766.001-3.18-2.585-5.767-5.766-5.767z"/>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="copyright">
-        <div class="container">
-            <div class="copyright__text">
-                <div>© 2023 Альтаир Недвижимость. All Rights Reserved</div>
-                <div>Made <span>by Fokin Eugene</span></div>
+        
+        <div class="copyright">
+            <div class="container">
+                <div class="copyright__content">
+                    <p>© 2023 ООО "Альтаир Недвижимость". Все права защищены</p>
+                    <p><a href="privacy.html">Политика конфиденциальности</a></p>
+                    <p>Разработка: <a href="#">Евгений Фокин</a></p>
+                </div>
             </div>
         </div>
-    </div>
-</footer>
+        
+        <!-- Кнопка "Наверх" -->
+        <button class="scroll-top" aria-label="Наверх" id="scrollTop">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="18 15 12 9 6 15"></polyline>
+            </svg>
+        </button>
+    </footer>
 
-<!-- Javascript -->
-<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-<script src="app.js"></script>
+    <!-- Scripts -->
+    <script src="app.js"></script>
+    <script src="contacts.js"></script>
+    
 </body>
 </html>

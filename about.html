@@ -2,236 +2,429 @@
 <html lang="ru">
 <head>
     <meta charset="utf-8">
-    <title>ООО Альтаир Недвижимость</title>
-    <meta name="description" content="Риэлторские услуги по купле-продаже и аренде недвижимости в Восточном Подмосковье от ООО Альтаир Недвижимость.">
-    <meta name="keywords" content="недвижимость, риэлторские услуги, купля-продажа, аренда, Восточное Подмосковье">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link href="https://fonts.googleapis.com/css?family=Cardo:400i|Open+Sans:700|Raleway:300,400,600,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="reset.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" href="about.css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="index, follow">
+    <meta name="google" content="notranslate">
+    
+    <!-- SEO мета-теги -->
+    <title>О компании | ООО Альтаир Недвижимость | История и команда</title>
+    <meta name="description" content="История компании Альтаир Недвижимость с 2012 года. Наша команда профессионалов, миссия и ценности. Более 1000 успешных сделок и 500 довольных клиентов.">
+    <meta name="keywords" content="о компании, история компании, команда, миссия, ценности, достижения, отзывы">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://altair-realty.ru/about.html">
+    <meta property="og:title" content="О компании | ООО Альтаир Недвижимость">
+    <meta property="og:description" content="История компании с 2012 года. Наша команда профессионалов, миссия и ценности.">
+    <meta property="og:image" content="https://altair-realty.ru/img/og-about.jpg">
+    
+    <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple.jpg">
     <link rel="icon" type="image/png" sizes="32x32" href="img/32.jpg">
     <link rel="icon" type="image/png" sizes="16x16" href="img/16.jpg">
-    <link rel="manifest" href="img/favicons/site.webmanifest">
+    
     <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
-    <meta name="google" content="notranslate" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script>
-    <script src="app.js" defer></script>
+    <meta name="theme-color" content="#31344e">
+    
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="about.css">
 </head>
 <body>
 
-<header class="header" id="header">
-    <div class="container">
-        <div class="header__inner">
-            <h1 class="header__logo">ООО АЛЬТАИР НЕДВИЖИМОСТЬ</h1>
-            <nav class="nav" id="nav" aria-label="Основная навигация">
-                <a class="nav__link" href="index.html">Главная</a>
-                <a class="nav__link" href="objects.html">Объекты</a>
-                <a class="nav__link" href="services.html">Услуги</a>
-                <a class="nav__link" href="about.html">О нас</a>
-                <a class="nav__link" href="contacts.html">Контакты</a>
-            </nav>
-            <button class="burger" type="button" id="navToggle" aria-expanded="false" aria-controls="nav">
-                <span class="burger__item">Меню</span>
-            </button>
-        </div>
-    </div>
-</header>
+    <!-- Skip to content link -->
+    <a href="#main-content" class="skip-link">Перейти к содержанию</a>
 
-<main id="main-content">
-
-    <section class="intro" id="intro" aria-labelledby="intro-title">
+    <!-- Header -->
+    <header class="header" id="header" role="banner">
         <div class="container">
-            <div class="intro__inner">
-                <h2 id="intro-title" class="intro__title">О компании</h2>
-                <h3 class="intro__subtitle">Покупка, продажа недвижимости<br>Вместе с нами у Вас всё получится!</h3>
-                <div class="intro__text">
-                    <p>ООО «Альтаир Недвижимость» — динамично развивающаяся компания на рынке недвижимости в Восточном Подмосковье...</p>
-                    <p>Специалисты компании помогут продать, купить, сдать или снять жильё, коммерческую недвижимость...</p>
+            <div class="header__inner">
+                <a href="index.html" class="header__logo" aria-label="На главную">
+                    <strong>ООО АЛЬТАИР</strong>
+                    <span>Недвижимость</span>
+                </a>
+                
+                <nav class="nav" id="nav" aria-label="Главное меню">
+                    <a class="nav__link" href="index.html">главная</a>
+                    <a class="nav__link" href="objects.html">объекты</a>
+                    <a class="nav__link" href="services.html">услуги</a>
+                    <a class="nav__link nav__link--active" href="about.html" aria-current="page">о нас</a>
+                    <a class="nav__link" href="contacts.html">контакты</a>
+                </nav>
+                
+                <button class="burger" type="button" id="navToggle" 
+                        aria-label="Открыть меню" 
+                        aria-expanded="false" 
+                        aria-controls="nav">
+                    <span class="burger__item"></span>
+                    <span class="burger__text">Меню</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <div class="page-header__content">
+                    <h1 class="page-header__title">О компании</h1>
+                    <div class="page-header__breadcrumbs">
+                        <a href="index.html">Главная</a>
+                        <span class="separator">/</span>
+                        <span class="current">О нас</span>
+                    </div>
+                    <p class="page-header__description">
+                        Ваш надежный партнер на рынке недвижимости с 2012 года
+                    </p>
                 </div>
-                <div class="about">
-                    <div class="about__item">
-                        <div class="about__img">
-                            <img src="img/Logotype.jpg" alt="Логотип ООО Альтаир Недвижимость">
+            </div>
+        </section>
+
+        <!-- История компании -->
+        <section class="history-section">
+            <div class="container">
+                <div class="history__grid">
+                    <div class="history__content">
+                        <h2>Наша история</h2>
+                        <p class="history__year">С 2012 года на рынке недвижимости</p>
+                        <p>Компания «Альтаир Недвижимость» была основана в 2012 году группой профессионалов, объединенных общей целью — сделать рынок недвижимости в Восточном Подмосковье прозрачным, безопасным и доступным для каждого.</p>
+                        <p>За годы работы мы прошли путь от небольшого офиса до одного из лидирующих агентств недвижимости в регионе. Нашими принципами всегда были и остаются: честность, профессионализм и индивидуальный подход к каждому клиенту.</p>
+                        <p>Сегодня «Альтаир Недвижимость» — это команда из 9 высококвалифицированных специалистов, готовых решить любые задачи, связанные с недвижимостью.</p>
+                    </div>
+                    <div class="history__timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-year">2012</div>
+                            <div class="timeline-text">Основание компании</div>
                         </div>
-                        <address class="about__text">
-                            Напишите нам<br>
-                            E-mail: <a href="mailto:altair-stars@bk.ru">altair-stars@bk.ru</a><br>
-                            Позвоните нам<br>
-                            Тел.: <a href="tel:+79168174788">+7 (916) 817-47-88</a>
-                        </address>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2015</div>
+                            <div class="timeline-text">Первое расширение офиса</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2018</div>
+                            <div class="timeline-text">500 успешных сделок</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2022</div>
+                            <div class="timeline-text">1000+ довольных клиентов</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2024</div>
+                            <div class="timeline-text">Серебряный партнер Сбербанка</div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="why-choose-us" aria-labelledby="why-choose-title">
+        <!-- Миссия и ценности -->
+        <section class="mission-section">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Наша миссия и ценности</h2>
+                    <p class="section__description">То, что делает нас особенными</p>
+                </div>
+                
+                <div class="mission-grid">
+                    <div class="mission-card">
+                        <div class="mission-card__icon">
+                            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                        </div>
+                        <h3>Индивидуальный подход</h3>
+                        <p>Каждый клиент уникален, поэтому мы разрабатываем персональную стратегию для решения именно вашей задачи.</p>
+                    </div>
+                    <div class="mission-card">
+                        <div class="mission-card__icon">
+                            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                        </div>
+                        <h3>Честность и прозрачность</h3>
+                        <p>Никаких скрытых комиссий. Все условия обсуждаются заранее и фиксируются в договоре.</p>
+                    </div>
+                    <div class="mission-card">
+                        <div class="mission-card__icon">
+                            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                        </div>
+                        <h3>Надежность и безопасность</h3>
+                        <p>Каждая сделка проходит юридическую проверку. Мы отвечаем за результат.</p>
+                    </div>
+                    <div class="mission-card">
+                        <div class="mission-card__icon">
+                            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                        <h3>Профессионализм</h3>
+                        <p>Постоянное повышение квалификации и следование современным стандартам рынка недвижимости.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Наша команда -->
+        <section class="team-section">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Наша команда</h2>
+                    <p class="section__description">Профессионалы, которым можно доверять</p>
+                </div>
+                
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-card__image">
+                            <img src="img/team/team1.webp" alt="Анна Иванова" loading="lazy">
+                        </div>
+                        <h3 class="team-card__name">Анна Иванова</h3>
+                        <p class="team-card__position">Руководитель отдела продаж</p>
+                        <div class="team-card__info">
+                            <p>Стаж: 12 лет</p>
+                            <p>Специализация: Жилая недвижимость</p>
+                        </div>
+                        <div class="team-card__contacts">
+                            <a href="tel:+79161234567" class="team-card__phone">+7 (916) 123-45-67</a>
+                            <a href="mailto:a.ivanova@altair.ru" class="team-card__email">a.ivanova@altair.ru</a>
+                        </div>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-card__image">
+                            <img src="img/team/team2.webp" alt="Михаил Петров" loading="lazy">
+                        </div>
+                        <h3 class="team-card__name">Михаил Петров</h3>
+                        <p class="team-card__position">Ведущий риелтор</p>
+                        <div class="team-card__info">
+                            <p>Стаж: 8 лет</p>
+                            <p>Специализация: Вторичный рынок</p>
+                        </div>
+                        <div class="team-card__contacts">
+                            <a href="tel:+79169876543" class="team-card__phone">+7 (916) 987-65-43</a>
+                            <a href="mailto:m.petrov@altair.ru" class="team-card__email">m.petrov@altair.ru</a>
+                        </div>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-card__image">
+                            <img src="img/team/team3.webp" alt="Елена Соколова" loading="lazy">
+                        </div>
+                        <h3 class="team-card__name">Елена Соколова</h3>
+                        <p class="team-card__position">Юрист по недвижимости</p>
+                        <div class="team-card__info">
+                            <p>Стаж: 10 лет</p>
+                            <p>Специализация: Юридическое сопровождение</p>
+                        </div>
+                        <div class="team-card__contacts">
+                            <a href="tel:+79165554433" class="team-card__phone">+7 (916) 555-44-33</a>
+                            <a href="mailto:e.sokolova@altair.ru" class="team-card__email">e.sokolova@altair.ru</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Достижения -->
+        <section class="achievements-section">
+            <div class="container">
+                <div class="achievements-grid">
+                    <div class="achievement-item">
+                        <div class="achievement-number" data-target="12">12</div>
+                        <div class="achievement-label">лет на рынке</div>
+                        <div class="achievement-desc">Успешной работы</div>
+                    </div>
+                    <div class="achievement-item">
+                        <div class="achievement-number" data-target="1000">1000+</div>
+                        <div class="achievement-label">успешных сделок</div>
+                        <div class="achievement-desc">За всю историю</div>
+                    </div>
+                    <div class="achievement-item">
+                        <div class="achievement-number" data-target="500">500+</div>
+                        <div class="achievement-label">счастливых клиентов</div>
+                        <div class="achievement-desc">Рекомендуют нас</div>
+                    </div>
+                    <div class="achievement-item">
+                        <div class="achievement-number" data-target="98">98%</div>
+                        <div class="achievement-label">положительных отзывов</div>
+                        <div class="achievement-desc">На основе 127 отзывов</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Отзывы клиентов -->
+        <section class="reviews-section">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Отзывы клиентов</h2>
+                    <p class="section__description">Нас любят наши клиенты — их отзывы</p>
+                </div>
+                
+                <div class="reviews-slider">
+                    <div class="reviews-slider__container">
+                        <div class="review-card">
+                            <div class="review-card__content">
+                                <div class="review-card__rating">★★★★★</div>
+                                <p class="review-card__text">"Обратились в Альтаир Недвижимость для продажи квартиры. Очень довольны результатом! Специалисты оперативно нашли покупателя, помогли с оформлением документов. Всё прошло гладко и быстро. Спасибо команде!"</p>
+                                <div class="review-card__author">
+                                    <strong>Екатерина Смирнова</strong>
+                                    <span>Продажа квартиры</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="review-card">
+                            <div class="review-card__content">
+                                <div class="review-card__rating">★★★★★</div>
+                                <p class="review-card__text">"Благодаря Альтаир Недвижимость я смог купить квартиру своей мечты! Профессиональный подход, внимательное отношение к пожеланиям клиента. Отдельное спасибо юристам за качественное сопровождение сделки."</p>
+                                <div class="review-card__author">
+                                    <strong>Алексей Козлов</strong>
+                                    <span>Покупка квартиры</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="review-card">
+                            <div class="review-card__content">
+                                <div class="review-card__rating">★★★★★</div>
+                                <p class="review-card__text">"Снимала квартиру через Альтаир Недвижимость. Очень довольна сервисом! Подобрали отличный вариант, быстро оформили договор. Всем рекомендую обращаться в эту компанию."</p>
+                                <div class="review-card__author">
+                                    <strong>Мария Волкова</strong>
+                                    <span>Аренда квартиры</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="slider-prev" aria-label="Предыдущий отзыв">‹</button>
+                    <button class="slider-next" aria-label="Следующий отзыв">›</button>
+                    <div class="slider-dots"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Присоединяйтесь -->
+        <section class="join-section">
+            <div class="container">
+                <div class="join-content">
+                    <h2>Присоединяйтесь к числу наших довольных клиентов!</h2>
+                    <p>Оставьте заявку на бесплатную консультацию, и мы поможем вам решить любые вопросы с недвижимостью</p>
+                    <a href="#callback" class="btn btn-primary btn-lg" data-scroll="#callback">Получить консультацию</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Callback Section -->
+        <section class="callback-section" id="callback">
+            <div class="container">
+                <div class="callback__inner">
+                    <h2 class="callback__title">Остались вопросы?</h2>
+                    <p class="callback__description">Заполните форму, и мы свяжемся с вами в ближайшее время</p>
+                    
+                    <form class="callback__form" id="callbackForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="name" placeholder="Ваше имя" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" class="form-control" name="phone" placeholder="+7 (___) ___-__-__" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="question" placeholder="Ваш вопрос">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Отправить</button>
+                        <p class="callback__agree">
+                            Нажимая кнопку, вы соглашаетесь с 
+                            <a href="privacy.html">политикой обработки персональных данных</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
         <div class="container">
-            <header class="section__header">
-                <h3 id="why-choose-title" class="section__subtitle">Почему выбирают нас?</h3>
-                <p class="section__title">Наша компания предлагает риэлторские услуги по купле-продаже и аренде недвижимости...</p>
-            </header>
-        </div>
-    </section>
-
-    <section class="statistics" aria-label="Статистика компании">
-        <div class="container">
-            <div class="stat">
-                <div class="stat__item">
-                    <div class="stat__count">15</div>
-                    <div class="stat__text">Лет на рынке</div>
+            <div class="footer__grid">
+                <div class="footer__block">
+                    <h3 class="footer__title">Контакты</h3>
+                    <address class="footer__address">
+                        <p>ул. Николаева, 54<br>Электросталь, Московская обл., 144012</p>
+                        <p><a href="tel:+79168174788">+7 (916) 817-47-88</a></p>
+                        <p><a href="mailto:altair-stars@bk.ru">altair-stars@bk.ru</a></p>
+                    </address>
                 </div>
-                <div class="stat__item">
-                    <div class="stat__count">9</div>
-                    <div class="stat__text">Специалистов</div>
+                
+                <div class="footer__block">
+                    <h3 class="footer__title">Режим работы</h3>
+                    <div class="footer__schedule">
+                        <p>Пн-Пт: 09:00 - 20:00</p>
+                        <p>Сб: 10:00 - 18:00</p>
+                        <p>Вс: выходной</p>
+                    </div>
                 </div>
-                <div class="stat__item">
-                    <div class="stat__count">4.3</div>
-                    <div class="stat__text">Наш рейтинг</div>
-                </div>
-                <div class="stat__item">
-                    <div class="stat__count">1000</div>
-                    <div class="stat__text">Успешных сделок</div>
-                </div>
-                <div class="stat__item">
-                    <div class="stat__count">500</div>
-                    <div class="stat__text">Счастливых клиентов</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="reviews" aria-labelledby="reviews-title">
-        <div class="container">
-            <header class="section__header">
-                <h3 id="reviews-title" class="section__subtitle">Отзывы о нашей работе</h3>
-                <h2 class="section__title">Нас любят наши клиенты - их отзывы</h2>
-            </header>
-
-            <div class="adaptivny-slayder">
-                <input type="radio" name="kadoves" id="slaid1" checked>
-                <input type="radio" name="kadoves" id="slaid2">
-                <input type="radio" name="kadoves" id="slaid3">
-                <input type="radio" name="kadoves" id="slaid4">
-                <input type="radio" name="kadoves" id="slaid5">
-                <input type="radio" name="kadoves" id="slaid6">
-                <input type="radio" name="kadoves" id="slaid7">
-
-                <div class="kadoves" role="tablist" aria-label="Отзывы">
-                    <label for="slaid1" role="tab" tabindex="0"></label>
-                    <label for="slaid2" role="tab" tabindex="0"></label>
-                    <label for="slaid3" role="tab" tabindex="0"></label>
-                    <label for="slaid4" role="tab" tabindex="0"></label>
-                    <label for="slaid5" role="tab" tabindex="0"></label>
-                    <label for="slaid6" role="tab" tabindex="0"></label>
-                    <label for="slaid7" role="tab" tabindex="0"></label>
-                </div>
-
-                <div class="adaptivny-slayder-lasekun">
-                    <div class="abusteku-deagulus">
-                        <article><img src="img/Feedback/1.PNG" alt="Отзыв 1"></article>
-                        <article><img src="img/Feedback/2.PNG" alt="Отзыв 2"></article>
-                        <article><img src="img/Feedback/3.PNG" alt="Отзыв 3"></article>
-                        <article><img src="img/Feedback/4.PNG" alt="Отзыв 4"></article>
-                        <article><img src="img/Feedback/5.PNG" alt="Отзыв 5"></article>
-                        <article><img src="img/Feedback/6.PNG" alt="Отзыв 6"></article>
-                        <article><img src="img/Feedback/7.PNG" alt="Отзыв 7"></article>
+                
+                <div class="footer__block">
+                    <h3 class="footer__title">Мы в соцсетях</h3>
+                    <div class="footer__social">
+                        <a href="#" class="footer__social-link" aria-label="VK">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M21.547 7.107c.104-.362 0-.607-.5-.607h-1.845c-.417 0-.61.215-.715.452 0 0-.836 1.998-2.02 3.297-.382.375-.556.494-.764.494-.104 0-.255-.119-.255-.48V7.107c0-.43-.125-.607-.484-.607h-2.857c-.278 0-.445.196-.445.386 0 .41.632.504.695 1.656v2.5c0 .55-.102.65-.326.65-.764 0-2.62-2.757-3.72-5.913-.215-.62-.43-.852-.852-.868H5.28c-.486 0-.584.226-.584.452 0 .425.593 2.53 2.76 5.32 1.446 2.054 3.48 3.166 5.335 3.166 1.112 0 1.25-.246 1.25-.668v-1.54c0-.487.104-.584.45-.584.255 0 .694.125 1.716 1.09 1.172 1.15 1.364 1.664 2.024 1.664h1.846c.486 0 .73-.246.59-.73-.153-.476-.705-1.166-1.437-1.986-.398-.465-.995-.966-1.176-1.217-.253-.33-.18-.477 0-.77 0 0 2.078-2.88 2.294-3.857z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="footer__social-link" aria-label="Telegram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.065-1.226-.46-1.901-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.176-.183 3.236-2.967 3.295-3.22.007-.032.014-.15-.056-.212-.07-.063-.174-.04-.249-.024-.106.022-1.793 1.14-5.062 3.345-.48.33-.915.49-1.302.48-.428-.01-1.252-.242-1.865-.44-.752-.244-1.35-.373-1.298-.788.027-.215.324-.435.89-.66 3.504-1.527 5.84-2.532 7.008-3.015 3.337-1.382 4.03-1.622 4.482-1.63.1-.001.322.023.466.14.122.099.156.234.17.368.014.134.01.323-.006.413z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="footer__social-link" aria-label="WhatsApp">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.277-.589c.925.478 1.927.73 3.054.73 3.18 0 5.767-2.586 5.768-5.766.001-3.18-2.585-5.767-5.766-5.767z"/>
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <section class="contacts" aria-labelledby="contacts-title">
-        <div class="container content">
-            <header>
-                <h2 id="contacts-title" class="topic-text">Отправьте нам сообщение</h2>
-                <p>Если у вас есть вопросы, заполните форму ниже, мы с вами свяжемся!</p>
-            </header>
-            <div class="left-side">
-                <address class="details">
-                    <div><i class="fas fa-map-marker-alt"></i> <strong>Адрес:</strong> г. Электросталь, Ул. Николаева , 54, 1 этаж, офис 24Б</div>
-                    <div><i class="fas fa-phone-alt"></i> <strong>Телефон:</strong> <a href="tel:+79168174788">+7 (916) 817-47-88</a></div>
-                    <div><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:altair-stars@bk.ru">altair-stars@bk.ru</a></div>
-                </address>
-            </div>
-            <div class="right-side">
-                <form action="#" method="post">
-                    <div class="input-box">
-                        <label for="name">Ваше имя</label>
-                        <input id="name" type="text" name="name" placeholder="Ваше имя" required />
-                    </div>
-                    <div class="input-box">
-                        <label for="email">Введите email</label>
-                        <input id="email" type="email" name="email" placeholder="Введите email" required />
-                    </div>
-                    <div class="input-box">
-                        <label for="phone">Введите телефон</label>
-                        <input id="phone" type="tel" name="phone" placeholder="Введите телефон" />
-                    </div>
-                    <div class="input-box message-box">
-                        <label for="message">Сообщение</label>
-                        <textarea id="message" name="message" rows="5" placeholder="Сообщение" required></textarea>
-                    </div>
-                    <div class="button">
-                        <input type="submit" value="Отправить" />
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
-
-</main>
-
-<!-- Footer -->
-<footer class="footer">
-    <div class="container">
-        <div class="footer__inner">
-            <div class="footer__block">
-                <h4 class="footer__title">Наш Адрес</h4>
-                <address class="footer__address">
-                    <div>ул. Николаева, 54</div>
-                    <div>Электросталь, Московская обл.,<br>Россия, 144012</div>
-                </address>
-            </div>
-
-            <div class="footer__block">
-                <h4 class="footer__title">Наш E-MAIL</h4>
-                <div class="social  social--footer">
-                    <div class="footer__text">
-                        <p>altair-stars@bk.ru</p>
-                    </div>
+        
+        <div class="copyright">
+            <div class="container">
+                <div class="copyright__content">
+                    <p>© 2023 ООО "Альтаир Недвижимость". Все права защищены</p>
+                    <p><a href="privacy.html">Политика конфиденциальности</a></p>
+                    <p>Разработка: <a href="#">Евгений Фокин</a></p>
                 </div>
             </div>
-
-            <div class="footer__block">
-                <h4 class="footer__title">Тел. номер</h4>
-                <div class="footer__text">
-                    <p>+7(916) 817-47-88</p>
-                </div>
-            </div>
-            
-        </div><!-- /.footer__inner -->
-
-    </div><!-- /.container -->
-
-    <div class="copyright">
-        <div class="container">
-            <div class="copyright__text">
-                <div>© 2023 Альтаир Недвижимость. All Rights Reserved</div>
-                <div>Made <span>by Fokin Eugene</span></div>
-            </div>
         </div>
-    </div>
-</footer>
+        
+        <!-- Кнопка "Наверх" -->
+        <button class="scroll-top" aria-label="Наверх" id="scrollTop">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="18 15 12 9 6 15"></polyline>
+            </svg>
+        </button>
+    </footer>
 
-<!-- Подключение шрифтовых иконок -->
-<script src="https://kit.fontawesome.com/fce9a50d02.js" crossorigin="anonymous" defer></script>
-
+    <!-- Scripts -->
+    <script src="app.js"></script>
+    <script src="about.js"></script>
+    
 </body>
 </html>
