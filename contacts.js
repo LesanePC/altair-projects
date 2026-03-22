@@ -143,18 +143,18 @@
         });
     }
     
-    // ========== Form Handling ==========
+     // ========== Form Handling ==========
     function initFormHandling() {
+        const callbackForm = document.getElementById('callbackForm');
         if (!callbackForm) return;
         
-        // Маска для телефона
+        // Маска для телефона (чистый JS)
         const phoneInput = callbackForm.querySelector('input[name="phone"]');
-        if (phoneInput && typeof $.fn !== 'undefined' && $.fn.mask) {
-            $(phoneInput).mask('+7 (999) 999-99-99');
-        } else if (phoneInput) {
+        if (phoneInput) {
             phoneInput.addEventListener('input', function(e) {
                 let value = this.value.replace(/\D/g, '');
                 if (value.length > 11) value = value.slice(0, 11);
+                
                 if (value.length === 0) {
                     this.value = '';
                 } else if (value.length <= 1) {
@@ -171,28 +171,12 @@
             });
         }
         
-        // Валидация email
-        const emailInput = callbackForm.querySelector('input[name="email"]');
-        if (emailInput) {
-            emailInput.addEventListener('blur', function() {
-                const email = this.value.trim();
-                const emailRegex = /^[^\s@]+@([^\s@]+\.)+[^\s@]+$/;
-                if (email && !emailRegex.test(email)) {
-                    this.style.borderColor = '#dc3545';
-                } else {
-                    this.style.borderColor = '#e0e0e0';
-                }
-            });
-        }
-        
         // Отправка формы
         callbackForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            // Валидация
             const name = this.querySelector('input[name="name"]').value.trim();
             const phone = this.querySelector('input[name="phone"]').value.trim();
-            const message = this.querySelector('textarea[name="message"]').value.trim();
             
             if (!name) {
                 if (window.showMessage) window.showMessage('Введите ваше имя', 'error');
@@ -204,51 +188,18 @@
                 return;
             }
             
-            if (!message) {
-                if (window.showMessage) window.showMessage('Введите сообщение', 'error');
-                return;
-            }
-            
-            // Валидация email если заполнен
-            const email = this.querySelector('input[name="email"]').value.trim();
-            if (email) {
-                const emailRegex = /^[^\s@]+@([^\s@]+\.)+[^\s@]+$/;
-                if (!emailRegex.test(email)) {
-                    if (window.showMessage) window.showMessage('Введите корректный email', 'error');
-                    return;
-                }
-            }
-            
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
             submitBtn.disabled = true;
             submitBtn.textContent = 'Отправка...';
             
-            // Собираем данные
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData.entries());
-            data.page = window.location.href;
-            data.timestamp = new Date().toISOString();
-            
             try {
-                // Имитация отправки (замените на реальный endpoint)
                 await new Promise(resolve => setTimeout(resolve, 1000));
                 
                 if (window.showMessage) {
                     window.showMessage('Спасибо! Мы свяжемся с вами в ближайшее время.', 'success');
                 }
                 this.reset();
-                
-                // Отправка в аналитику
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'form_submit', {
-                        'event_category': 'contact',
-                        'event_label': 'contacts_page'
-                    });
-                }
-                if (typeof ym !== 'undefined') {
-                    ym('reachGoal', 'contact_form');
-                }
             } catch (error) {
                 console.error('Form submission error:', error);
                 if (window.showMessage) {

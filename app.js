@@ -11,30 +11,21 @@
     
     // ========== Helper Functions ==========
     
-    /**
-     * Показывает всплывающее сообщение
-     * @param {string} text - Текст сообщения
-     * @param {string} type - Тип сообщения (success/error/info)
-     */
     function showMessage(text, type = 'info') {
-        // Удаляем существующее сообщение
         const existingMessage = document.querySelector('.message-toast');
         if (existingMessage) {
             existingMessage.remove();
         }
         
-        // Создаем новое сообщение
         const message = document.createElement('div');
         message.className = `message-toast message-toast--${type}`;
         message.textContent = text;
         document.body.appendChild(message);
         
-        // Анимация появления
         setTimeout(() => {
             message.classList.add('show');
         }, 10);
         
-        // Автоматическое скрытие через 5 секунд
         setTimeout(() => {
             message.classList.remove('show');
             setTimeout(() => {
@@ -42,7 +33,6 @@
             }, 300);
         }, 5000);
         
-        // Закрытие по клику
         message.addEventListener('click', () => {
             message.classList.remove('show');
             setTimeout(() => {
@@ -51,11 +41,6 @@
         });
     }
     
-    /**
-     * Дебаунс функция для оптимизации событий
-     * @param {Function} func - Функция для вызова
-     * @param {number} wait - Задержка в мс
-     */
     function debounce(func, wait) {
         let timeout;
         return function executedFunction(...args) {
@@ -68,22 +53,12 @@
         };
     }
     
-    /**
-     * Проверка видимости элемента
-     * @param {Element} element - Элемент для проверки
-     * @returns {boolean}
-     */
     function isElementInViewport(element) {
         const rect = element.getBoundingClientRect();
         const windowHeight = window.innerHeight || document.documentElement.clientHeight;
         return rect.top <= windowHeight - 100 && rect.bottom >= 100;
     }
     
-    /**
-     * Форматирование номера телефона
-     * @param {string} phone - Номер телефона
-     * @returns {string}
-     */
     function formatPhoneNumber(phone) {
         const cleaned = phone.replace(/\D/g, '');
         const match = cleaned.match(/^(\d{1})(\d{3})(\d{3})(\d{2})(\d{2})$/);
@@ -93,15 +68,9 @@
         return phone;
     }
     
-    /**
-     * Валидация формы
-     * @param {HTMLFormElement} form - Форма для валидации
-     * @returns {boolean}
-     */
     function validateForm(form) {
         const name = form.querySelector('input[name="name"]');
         const phone = form.querySelector('input[name="phone"]');
-        const service = form.querySelector('select[name="service"]');
         
         if (name && !name.value.trim()) {
             showMessage('Пожалуйста, введите ваше имя', 'error');
@@ -151,7 +120,6 @@
             this.setAttribute('aria-expanded', isExpanded);
             this.setAttribute('aria-label', isExpanded ? 'Закрыть меню' : 'Открыть меню');
             
-            // Блокируем прокрутку при открытом меню
             if (isExpanded) {
                 document.body.style.overflow = 'hidden';
             } else {
@@ -159,7 +127,6 @@
             }
         });
         
-        // Закрываем меню при клике на ссылку
         const navLinks = document.querySelectorAll('.nav__link');
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
@@ -170,7 +137,6 @@
             });
         });
         
-        // Закрываем меню при клике вне его
         document.addEventListener('click', function(e) {
             if ($nav.classList.contains('show') && 
                 !$nav.contains(e.target) && 
@@ -208,10 +174,8 @@
                         behavior: 'smooth'
                     });
                     
-                    // Обновляем URL без скролла
                     history.pushState(null, null, hash);
                     
-                    // Закрываем меню
                     if ($nav && $nav.classList.contains('show')) {
                         $nav.classList.remove('show');
                         $navToggle.classList.remove('active');
@@ -248,7 +212,7 @@
     
     // ========== Animation on Scroll ==========
     function initScrollAnimation() {
-        const animatedElements = document.querySelectorAll('.works__item, .features__item, .team__item');
+        const animatedElements = document.querySelectorAll('.works__item, .features__item, .team__item, .service-card, .advantage-card, .team-card');
         
         function checkAnimation() {
             animatedElements.forEach(element => {
@@ -262,20 +226,80 @@
         window.addEventListener('resize', debounce(checkAnimation, 100));
         checkAnimation();
     }
+    // ========== Mobile Touch Handling for Works Cards ==========
+function initMobileTouchWorks() {
+    const worksCards = document.querySelectorAll('.works__item');
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     
+    if (!isMobile) return; // Только для мобильных
+    
+    let touchTimer = null;
+    let currentCard = null;
+    
+    worksCards.forEach(card => {
+        // Первое касание — показывает информацию
+        card.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            
+            // Убираем выделение со всех карточек
+            worksCards.forEach(c => c.classList.remove('touched'));
+            
+            // Добавляем выделение текущей
+            this.classList.add('touched');
+            currentCard = this;
+            
+            // Устанавливаем таймер для перехода
+            touchTimer = setTimeout(() => {
+                if (currentCard && currentCard.classList.contains('touched')) {
+                    const href = currentCard.getAttribute('href');
+                    if (href && href !== '#') {
+                        window.location.href = href;
+                    }
+                }
+                touchTimer = null;
+            }, 500);
+        });
+        
+        // Отмена таймера при touchend (если не было повторного касания)
+        card.addEventListener('touchend', function(e) {
+            if (touchTimer) {
+                clearTimeout(touchTimer);
+                touchTimer = null;
+            }
+        });
+        
+        // Отмена при движении пальца
+        card.addEventListener('touchmove', function(e) {
+            if (touchTimer) {
+                clearTimeout(touchTimer);
+                touchTimer = null;
+            }
+        });
+    });
+    
+    // Клик вне карточки — убираем выделение
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.works__item')) {
+            worksCards.forEach(card => card.classList.remove('touched'));
+            if (touchTimer) {
+                clearTimeout(touchTimer);
+                touchTimer = null;
+            }
+        }
+    });
+}
     // ========== Form Handling ==========
     function initFormHandling() {
-        if (!$callbackForm) return;
+        const callbackForm = document.getElementById('callbackForm');
+        if (!callbackForm) return;
         
-        // Маска для телефона (если есть jQuery Masked Input)
-        const phoneInput = $callbackForm.querySelector('input[name="phone"]');
-        if (phoneInput && typeof $.fn !== 'undefined' && $.fn.mask) {
-            $(phoneInput).mask('+7 (999) 999-99-99');
-        } else if (phoneInput) {
-            // Fallback: простая маска на чистом JS
+        // Маска для телефона (чистый JS)
+        const phoneInput = callbackForm.querySelector('input[name="phone"]');
+        if (phoneInput) {
             phoneInput.addEventListener('input', function(e) {
                 let value = this.value.replace(/\D/g, '');
                 if (value.length > 11) value = value.slice(0, 11);
+                
                 if (value.length === 0) {
                     this.value = '';
                 } else if (value.length <= 1) {
@@ -293,52 +317,39 @@
         }
         
         // Отправка формы
-        $callbackForm.addEventListener('submit', async function(e) {
+        callbackForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            if (!validateForm(this)) return;
+            const name = this.querySelector('input[name="name"]').value.trim();
+            const phone = this.querySelector('input[name="phone"]').value.trim();
+            
+            if (!name) {
+                if (window.showMessage) window.showMessage('Введите ваше имя', 'error');
+                return;
+            }
+            
+            if (!phone || phone === '+7 (___) ___-__-__') {
+                if (window.showMessage) window.showMessage('Введите номер телефона', 'error');
+                return;
+            }
             
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
             submitBtn.disabled = true;
             submitBtn.textContent = 'Отправка...';
             
-            // Собираем данные
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData.entries());
-            data.page = window.location.href;
-            data.timestamp = new Date().toISOString();
-            
             try {
-                // Отправка на сервер (замените на ваш endpoint)
-                const response = await fetch('/api/send-form.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data)
-                });
+                await new Promise(resolve => setTimeout(resolve, 1000));
                 
-                if (response.ok) {
-                    showMessage('Спасибо! Мы свяжемся с вами в ближайшее время.', 'success');
-                    this.reset();
-                    
-                    // Отправка в Google Analytics / Yandex Metrica
-                    if (typeof gtag !== 'undefined') {
-                        gtag('event', 'form_submit', {
-                            'event_category': 'callback',
-                            'event_label': 'main_page'
-                        });
-                    }
-                    if (typeof ym !== 'undefined') {
-                        ym('reachGoal', 'callback_form');
-                    }
-                } else {
-                    throw new Error('Server error');
+                if (window.showMessage) {
+                    window.showMessage('Спасибо! Мы свяжемся с вами в ближайшее время.', 'success');
                 }
+                this.reset();
             } catch (error) {
                 console.error('Form submission error:', error);
-                showMessage('Произошла ошибка. Пожалуйста, попробуйте позже.', 'error');
+                if (window.showMessage) {
+                    window.showMessage('Произошла ошибка. Пожалуйста, попробуйте позже.', 'error');
+                }
             } finally {
                 submitBtn.disabled = false;
                 submitBtn.textContent = originalText;
@@ -366,7 +377,6 @@
             const images = document.querySelectorAll('img[data-src]');
             images.forEach(img => imageObserver.observe(img));
         } else {
-            // Fallback для старых браузеров
             const images = document.querySelectorAll('img[data-src]');
             images.forEach(img => {
                 img.src = img.getAttribute('data-src');
@@ -404,8 +414,8 @@
         const images = document.querySelectorAll('img');
         images.forEach(img => {
             img.addEventListener('error', function() {
-                const fallbackSrc = '/img/placeholder.jpg';
-                if (this.src !== fallbackSrc) {
+                const fallbackSrc = 'img/placeholder.jpg';
+                if (this.src !== fallbackSrc && !this.src.includes(fallbackSrc)) {
                     console.warn(`Image failed to load: ${this.src}`);
                     this.src = fallbackSrc;
                 }
@@ -415,7 +425,6 @@
     
     // ========== Keyboard Navigation ==========
     function initKeyboardNavigation() {
-        // Закрытие меню по ESC
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' && $nav && $nav.classList.contains('show')) {
                 $nav.classList.remove('show');
@@ -425,7 +434,6 @@
             }
         });
         
-        // Переключение фокуса в меню
         if ($nav) {
             const focusableElements = $nav.querySelectorAll('a, button');
             if (focusableElements.length) {
@@ -451,50 +459,20 @@
         }
     }
     
-    // ========== Slick Slider Initialization ==========
-    function initSlickSlider() {
-        const $reviewsSlider = document.getElementById('reviewsSlider');
-        if ($reviewsSlider && typeof $ !== 'undefined' && $.fn.slick) {
-            $('#reviewsSlider').slick({
-                infinite: true,
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                fade: true,
-                arrows: false,
-                dots: true,
-                autoplay: true,
-                autoplaySpeed: 5000,
-                pauseOnHover: true,
-                speed: 800
-            });
-        }
-    }
-    
     // ========== Performance Optimization ==========
     function optimizePerformance() {
-        // Пассивные слушатели для улучшения скролла
         window.addEventListener('scroll', handleFixedHeader, { passive: true });
         window.addEventListener('resize', debounce(handleFixedHeader, 150));
         
-        // Удаляем неиспользуемые классы
         const body = document.body;
         if (body.classList.contains('no-js')) {
             body.classList.remove('no-js');
         }
     }
     
-    // ========== Console Warnings (Development) ==========
-    function initDevWarnings() {
-        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-            console.log('%cАльтаир Недвижимость', 'color: #ffd000; font-size: 16px; font-weight: bold;');
-            console.log('%cСайт работает в режиме разработки', 'color: #6c7279;');
-            console.log('Проверьте все ссылки и формы перед публикацией.');
-        }
-    }
-    
+   
     // ========== Initialize All ==========
     function init() {
-        // Базовая инициализация
         handleFixedHeader();
         initBurgerMenu();
         initSmoothScroll();
@@ -502,19 +480,15 @@
         initScrollAnimation();
         initFormHandling();
         initActiveNavLink();
+        initMobileTouchWorks();
         
-        // Оптимизации
         initLazyLoading();
         checkWebPSupport();
         initImageErrorHandling();
         initKeyboardNavigation();
-        initSlickSlider();
         optimizePerformance();
         
-        // Dev режим
-        initDevWarnings();
         
-        // Экспорт для отладки
         if (window.location.hostname === 'localhost') {
             window.debug = {
                 showMessage,
@@ -526,7 +500,6 @@
         console.log('Сайт успешно загружен');
     }
     
-    // Запуск после полной загрузки DOM
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {
@@ -534,25 +507,6 @@
     }
     
 })();
-
-// ========== Additional jQuery Compatibility ==========
-if (typeof jQuery !== 'undefined') {
-    $(document).ready(function() {
-        // Дополнительная инициализация для jQuery плагинов
-        if (typeof $.fn.mask !== 'undefined') {
-            $('input[name="phone"]').mask('+7 (999) 999-99-99');
-        }
-        
-        // Анимация для элементов с data-aos
-        if (typeof AOS !== 'undefined') {
-            AOS.init({
-                duration: 800,
-                once: true,
-                offset: 100
-            });
-        }
-    });
-}
 
 // ========== Service Worker Registration (Optional) ==========
 if ('serviceWorker' in navigator && window.location.protocol === 'https:') {

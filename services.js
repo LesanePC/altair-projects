@@ -411,20 +411,18 @@
         }
     }
     
-    // ========== Form Handling ==========
+     // ========== Form Handling ==========
     function initFormHandling() {
-        const form = document.getElementById('callbackForm');
-        if (!form) return;
+        const callbackForm = document.getElementById('callbackForm');
+        if (!callbackForm) return;
         
-        // Маска для телефона
-        const phoneInput = form.querySelector('input[name="phone"]');
-        if (phoneInput && typeof $.fn !== 'undefined' && $.fn.mask) {
-            $(phoneInput).mask('+7 (999) 999-99-99');
-        } else if (phoneInput) {
-            // Простая маска на чистом JS
+        // Маска для телефона (чистый JS)
+        const phoneInput = callbackForm.querySelector('input[name="phone"]');
+        if (phoneInput) {
             phoneInput.addEventListener('input', function(e) {
                 let value = this.value.replace(/\D/g, '');
                 if (value.length > 11) value = value.slice(0, 11);
+                
                 if (value.length === 0) {
                     this.value = '';
                 } else if (value.length <= 1) {
@@ -442,24 +440,19 @@
         }
         
         // Отправка формы
-        form.addEventListener('submit', async function(e) {
+        callbackForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            // Валидация
             const name = this.querySelector('input[name="name"]').value.trim();
             const phone = this.querySelector('input[name="phone"]').value.trim();
             
             if (!name) {
-                if (window.showMessage) {
-                    window.showMessage('Пожалуйста, введите ваше имя', 'error');
-                }
+                if (window.showMessage) window.showMessage('Введите ваше имя', 'error');
                 return;
             }
             
             if (!phone || phone === '+7 (___) ___-__-__') {
-                if (window.showMessage) {
-                    window.showMessage('Пожалуйста, введите номер телефона', 'error');
-                }
+                if (window.showMessage) window.showMessage('Введите номер телефона', 'error');
                 return;
             }
             
@@ -468,31 +461,13 @@
             submitBtn.disabled = true;
             submitBtn.textContent = 'Отправка...';
             
-            // Собираем данные
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData.entries());
-            data.page = window.location.href;
-            data.timestamp = new Date().toISOString();
-            
             try {
-                // Имитация отправки (замените на реальный endpoint)
                 await new Promise(resolve => setTimeout(resolve, 1000));
                 
                 if (window.showMessage) {
                     window.showMessage('Спасибо! Мы свяжемся с вами в ближайшее время.', 'success');
                 }
                 this.reset();
-                
-                // Отправка в аналитику
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'form_submit', {
-                        'event_category': 'callback',
-                        'event_label': 'services_page'
-                    });
-                }
-                if (typeof ym !== 'undefined') {
-                    ym('reachGoal', 'callback_form_services');
-                }
             } catch (error) {
                 console.error('Form submission error:', error);
                 if (window.showMessage) {

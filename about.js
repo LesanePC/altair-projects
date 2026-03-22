@@ -232,17 +232,18 @@
         });
     }
     
-    // ========== Form Handling ==========
+     // ========== Form Handling ==========
     function initFormHandling() {
         const callbackForm = document.getElementById('callbackForm');
         if (!callbackForm) return;
         
-        // Маска для телефона
+        // Маска для телефона (чистый JS)
         const phoneInput = callbackForm.querySelector('input[name="phone"]');
         if (phoneInput) {
             phoneInput.addEventListener('input', function(e) {
                 let value = this.value.replace(/\D/g, '');
                 if (value.length > 11) value = value.slice(0, 11);
+                
                 if (value.length === 0) {
                     this.value = '';
                 } else if (value.length <= 1) {
@@ -283,10 +284,16 @@
             
             try {
                 await new Promise(resolve => setTimeout(resolve, 1000));
-                if (window.showMessage) window.showMessage('Спасибо! Мы свяжемся с вами.', 'success');
+                
+                if (window.showMessage) {
+                    window.showMessage('Спасибо! Мы свяжемся с вами в ближайшее время.', 'success');
+                }
                 this.reset();
             } catch (error) {
-                if (window.showMessage) window.showMessage('Ошибка. Попробуйте позже.', 'error');
+                console.error('Form submission error:', error);
+                if (window.showMessage) {
+                    window.showMessage('Произошла ошибка. Пожалуйста, попробуйте позже.', 'error');
+                }
             } finally {
                 submitBtn.disabled = false;
                 submitBtn.textContent = originalText;
