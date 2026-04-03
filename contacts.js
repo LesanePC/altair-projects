@@ -7,29 +7,26 @@
     }
 
     // ========== Функция для показа сообщений ==========
-    if (typeof window.showMessage !== 'function') {
-        window.showMessage = function(text, type) {
-            const existingMessage = document.querySelector('.message-toast');
-            if (existingMessage) existingMessage.remove();
-            
-            const message = document.createElement('div');
-            message.className = `message-toast message-toast--${type}`;
-            message.textContent = text;
-            document.body.appendChild(message);
-            
-            setTimeout(() => message.classList.add('show'), 10);
-            setTimeout(() => {
-                message.classList.remove('show');
-                setTimeout(() => message.remove(), 300);
-            }, 3000);
-            
-            message.addEventListener('click', () => message.remove());
-        };
+    function showMessage(text, type = 'info') {
+        const existingMessage = document.querySelector('.message-toast');
+        if (existingMessage) existingMessage.remove();
+        
+        const message = document.createElement('div');
+        message.className = `message-toast message-toast--${type}`;
+        message.textContent = text;
+        document.body.appendChild(message);
+        
+        setTimeout(() => message.classList.add('show'), 10);
+        setTimeout(() => {
+            message.classList.remove('show');
+            setTimeout(() => message.remove(), 300);
+        }, 3000);
+        
+        message.addEventListener('click', () => message.remove());
     }
 
     // ========== DOM Elements ==========
     const contactCards = document.querySelectorAll('.contact-card');
-    const callbackForm = document.getElementById('callbackForm');
     const mapFrame = document.querySelector('.map-wrapper iframe');
     const socialLinks = document.querySelectorAll('.social-link');
     
@@ -80,25 +77,18 @@
         
         phoneNumbers.forEach(phone => {
             phone.addEventListener('click', function(e) {
-                // Не предотвращаем стандартное поведение, просто копируем дополнительно
                 const phoneNumber = this.getAttribute('href').replace('tel:', '');
                 
                 navigator.clipboard.writeText(phoneNumber).then(() => {
-                    if (window.showMessage) {
-                        window.showMessage('Номер телефона скопирован', 'success');
-                    }
+                    showMessage('Номер телефона скопирован', 'success');
                 }).catch(() => {
-                    // Fallback
                     const textArea = document.createElement('textarea');
                     textArea.value = phoneNumber;
                     document.body.appendChild(textArea);
                     textArea.select();
                     document.execCommand('copy');
                     document.body.removeChild(textArea);
-                    
-                    if (window.showMessage) {
-                        window.showMessage('Номер телефона скопирован', 'success');
-                    }
+                    showMessage('Номер телефона скопирован', 'success');
                 });
             });
         });
@@ -110,7 +100,6 @@
         
         emails.forEach(email => {
             email.addEventListener('click', function() {
-                // Отправка в аналитику
                 if (typeof gtag !== 'undefined') {
                     gtag('event', 'email_click', {
                         'event_category': 'contact',
@@ -143,12 +132,11 @@
         });
     }
     
-     // ========== Form Handling ==========
+    // ========== Form Handling ==========
     function initFormHandling() {
         const callbackForm = document.getElementById('callbackForm');
         if (!callbackForm) return;
         
-        // Маска для телефона (чистый JS)
         const phoneInput = callbackForm.querySelector('input[name="phone"]');
         if (phoneInput) {
             phoneInput.addEventListener('input', function(e) {
@@ -171,7 +159,6 @@
             });
         }
         
-        // Отправка формы
         callbackForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
@@ -179,12 +166,12 @@
             const phone = this.querySelector('input[name="phone"]').value.trim();
             
             if (!name) {
-                if (window.showMessage) window.showMessage('Введите ваше имя', 'error');
+                showMessage('Введите ваше имя', 'error');
                 return;
             }
             
             if (!phone || phone === '+7 (___) ___-__-__') {
-                if (window.showMessage) window.showMessage('Введите номер телефона', 'error');
+                showMessage('Введите номер телефона', 'error');
                 return;
             }
             
@@ -195,16 +182,11 @@
             
             try {
                 await new Promise(resolve => setTimeout(resolve, 1000));
-                
-                if (window.showMessage) {
-                    window.showMessage('Спасибо! Мы свяжемся с вами в ближайшее время.', 'success');
-                }
+                showMessage('Спасибо! Мы свяжемся с вами в ближайшее время.', 'success');
                 this.reset();
             } catch (error) {
                 console.error('Form submission error:', error);
-                if (window.showMessage) {
-                    window.showMessage('Произошла ошибка. Пожалуйста, попробуйте позже.', 'error');
-                }
+                showMessage('Произошла ошибка. Пожалуйста, попробуйте позже.', 'error');
             } finally {
                 submitBtn.disabled = false;
                 submitBtn.textContent = originalText;
@@ -216,7 +198,6 @@
     function initMapLazyLoad() {
         if (!mapFrame) return;
         
-        // Загружаем карту только когда она видна
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -234,45 +215,15 @@
         observer.observe(mapFrame);
     }
     
-    // ========== Smooth Scroll for Anchors ==========
-    function initSmoothScroll() {
-        const scrollLinks = document.querySelectorAll('[data-scroll], a[href^="#"]:not([href="#"])');
-        
-        scrollLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                const hash = this.getAttribute('href') || this.getAttribute('data-scroll');
-                if (!hash || hash === '#') return;
-                
-                const targetId = hash.replace('#', '');
-                const target = document.getElementById(targetId);
-                
-                if (target) {
-                    e.preventDefault();
-                    
-                    const header = document.querySelector('.header');
-                    const headerHeight = header ? header.offsetHeight : 80;
-                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
-                    const offsetPosition = targetPosition - headerHeight - 20;
-                    
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    }
-    
     // ========== Map Widget Refresh (для мобильных) ==========
     function initMapRefresh() {
         const mapWidget = document.querySelector('.map-wrapper iframe');
         if (!mapWidget) return;
         
-        // На мобильных устройствах обновляем карту при повороте экрана
-        let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
         
         if (isMobile) {
-            let mapSrc = mapWidget.src;
+            const mapSrc = mapWidget.src;
             
             window.addEventListener('orientationchange', function() {
                 setTimeout(() => {
@@ -285,9 +236,9 @@
     // ========== Copy Address Function ==========
     function initCopyAddress() {
         const addressElement = document.querySelector('.contact-card:first-child p');
-        const addressButton = document.createElement('button');
         
         if (addressElement && addressElement.textContent) {
+            const addressButton = document.createElement('button');
             addressButton.textContent = 'Скопировать адрес';
             addressButton.className = 'copy-address-btn';
             addressButton.style.cssText = `
@@ -304,13 +255,9 @@
             addressButton.addEventListener('click', function() {
                 const address = addressElement.textContent.trim();
                 navigator.clipboard.writeText(address).then(() => {
-                    if (window.showMessage) {
-                        window.showMessage('Адрес скопирован', 'success');
-                    }
+                    showMessage('Адрес скопирован', 'success');
                 }).catch(() => {
-                    if (window.showMessage) {
-                        window.showMessage('Не удалось скопировать адрес', 'error');
-                    }
+                    showMessage('Не удалось скопировать адрес', 'error');
                 });
             });
             
@@ -347,7 +294,35 @@
         images.forEach(img => {
             img.addEventListener('error', function() {
                 console.warn('Image not found:', this.src);
-                // Не показываем ошибку пользователю
+            });
+        });
+    }
+    
+    // ========== Smooth Scroll for Anchors ==========
+    function initSmoothScroll() {
+        const scrollLinks = document.querySelectorAll('[data-scroll], a[href^="#"]:not([href="#"])');
+        
+        scrollLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                const hash = this.getAttribute('href') || this.getAttribute('data-scroll');
+                if (!hash || hash === '#') return;
+                
+                const targetId = hash.replace('#', '');
+                const target = document.getElementById(targetId);
+                
+                if (target) {
+                    e.preventDefault();
+                    
+                    const header = document.querySelector('.header');
+                    const headerHeight = header ? header.offsetHeight : 80;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = targetPosition - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
     }
@@ -356,40 +331,25 @@
     function init() {
         console.log('Инициализация страницы контактов...');
         
-        // Инициализация анимаций
         initCardAnimations();
         initScrollReveal();
-        
-        // Инициализация эффектов
         initCardHoverEffects();
-        
-        // Инициализация кнопок и ссылок
         initPhoneCopy();
         initEmailTracking();
         initSocialTracking();
         initCopyAddress();
-        
-        // Инициализация формы
         initFormHandling();
-        
-        // Инициализация карты
         initMapLazyLoad();
         initMapRefresh();
-        
-        // Инициализация скролла
         initSmoothScroll();
-        
-        // Исправление изображений
         fixMissingImages();
         
-        // Подсчет элементов
         const totalCards = contactCards.length;
         const totalSocial = socialLinks.length;
         
         console.log(`Загружено: ${totalCards} контактных карточек, ${totalSocial} социальных ссылок`);
     }
     
-    // Запуск после загрузки
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {

@@ -14,6 +14,24 @@
     const contactBtns = document.querySelectorAll('.contact-btn');
     const favoriteBtns = document.querySelectorAll('.btn-favorite');
 
+    // ========== Helper Functions ==========
+    function showMessage(text, type = 'info') {
+        const existingMessage = document.querySelector('.message-toast');
+        if (existingMessage) existingMessage.remove();
+        
+        const message = document.createElement('div');
+        message.className = `message-toast message-toast--${type}`;
+        message.textContent = text;
+        document.body.appendChild(message);
+        
+        setTimeout(() => message.classList.add('show'), 10);
+        
+        setTimeout(() => {
+            message.classList.remove('show');
+            setTimeout(() => message.remove(), 300);
+        }, 3000);
+    }
+
     // ========== Filter Functions ==========
     function filterProperties(target) {
         let visibleCount = 0;
@@ -28,16 +46,13 @@
             }
         });
         
-        // Показываем/скрываем сообщение "Ничего не найдено"
         if (noResults) {
             noResults.style.display = visibleCount === 0 ? 'block' : 'none';
         }
         
-        // Обновляем URL параметр (опционально)
         updateURLParameter('category', target);
     }
     
-    // Обновление URL без перезагрузки страницы
     function updateURLParameter(param, value) {
         const url = new URL(window.location);
         if (value === 'all') {
@@ -48,7 +63,6 @@
         window.history.replaceState({}, '', url);
     }
     
-    // Получение параметра из URL
     function getURLParameter(param) {
         const urlParams = new URLSearchParams(window.location.search);
         return urlParams.get(param);
@@ -75,14 +89,12 @@
             currentIndex = index;
         }
         
-        // Инициализация миниатюр
         if (thumbs.length) {
             thumbs.forEach((thumb, idx) => {
                 thumb.addEventListener('click', () => updateGallery(idx));
             });
         }
         
-        // Навигация "Назад"
         if (prevBtn) {
             prevBtn.addEventListener('click', () => {
                 let newIndex = currentIndex - 1;
@@ -91,7 +103,6 @@
             });
         }
         
-        // Навигация "Вперед"
         if (nextBtn) {
             nextBtn.addEventListener('click', () => {
                 let newIndex = currentIndex + 1;
@@ -100,20 +111,17 @@
             });
         }
         
-        // Активируем первый слайд
         updateGallery(0);
     }
 
-    // ========== Favorite Functions (с localStorage) ==========
+    // ========== Favorite Functions (localStorage) ==========
     function initFavorites() {
-        // Загружаем сохраненные избранные объекты
-        const savedFavorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+        const savedFavorites = JSON.parse(localStorage.getItem('altair_favorites') || '[]');
         
         favoriteBtns.forEach((btn, index) => {
             const card = btn.closest('.property-card');
             const propertyId = card?.dataset.id || `property_${index}`;
             
-            // Восстанавливаем состояние из localStorage
             if (savedFavorites.includes(propertyId)) {
                 btn.classList.add('active');
                 const icon = btn.querySelector('svg');
@@ -125,35 +133,23 @@
                 this.classList.toggle('active');
                 
                 const icon = this.querySelector('svg');
+                let favorites = JSON.parse(localStorage.getItem('altair_favorites') || '[]');
+                
                 if (this.classList.contains('active')) {
                     if (icon) icon.style.fill = '#ffd000';
-                    addToFavorites(propertyId);
-                    if (window.showMessage) {
-                        window.showMessage('Добавлено в избранное', 'success');
+                    if (!favorites.includes(propertyId)) {
+                        favorites.push(propertyId);
+                        localStorage.setItem('altair_favorites', JSON.stringify(favorites));
                     }
+                    showMessage('Добавлено в избранное', 'success');
                 } else {
                     if (icon) icon.style.fill = 'none';
-                    removeFromFavorites(propertyId);
-                    if (window.showMessage) {
-                        window.showMessage('Удалено из избранного', 'info');
-                    }
+                    favorites = favorites.filter(id => id !== propertyId);
+                    localStorage.setItem('altair_favorites', JSON.stringify(favorites));
+                    showMessage('Удалено из избранного', 'info');
                 }
             });
         });
-    }
-    
-    function addToFavorites(id) {
-        const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
-        if (!favorites.includes(id)) {
-            favorites.push(id);
-            localStorage.setItem('favorites', JSON.stringify(favorites));
-        }
-    }
-    
-    function removeFromFavorites(id) {
-        let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
-        favorites = favorites.filter(favId => favId !== id);
-        localStorage.setItem('favorites', JSON.stringify(favorites));
     }
 
     // ========== Contact Buttons ==========
@@ -164,12 +160,9 @@
                                    this.closest('.property-card')?.querySelector('.property-card__title')?.textContent || 
                                    'объект';
                 
-                // Прокручиваем к форме обратной связи
                 const callbackSection = document.querySelector('.callback-section');
                 if (callbackSection) {
                     callbackSection.scrollIntoView({ behavior: 'smooth' });
-                    
-                    // Опционально: заполняем скрытое поле с сообщением
                     const messageField = document.getElementById('message');
                     if (messageField) {
                         messageField.value = `Здравствуйте! Меня интересует ${propertyName}`;
@@ -179,7 +172,7 @@
         });
     }
 
-    // ========== Search Function (опционально) ==========
+    // ========== Search Function ==========
     function initSearch() {
         const searchInput = document.getElementById('searchInput');
         if (!searchInput) return;
@@ -201,10 +194,66 @@
                 if (matches) visibleCount++;
             });
             
-            // Показываем сообщение если ничего не найдено
             if (noResults) {
                 noResults.style.display = visibleCount === 0 ? 'block' : 'none';
             }
+        });
+    }
+
+    // ========== Price Filter (опционально) ==========
+    function initPriceFilter() {
+        const priceFrom = document.getElementById('priceFrom');
+        const priceTo = document.getElementById('priceTo');
+        if (!priceFrom && !priceTo) return;
+        
+        function filterByPrice() {
+            const from = parseInt(priceFrom?.value) || 0;
+            const to = parseInt(priceTo?.value) || Infinity;
+            let visibleCount = 0;
+            
+            propertyCards.forEach(card => {
+                const priceElement = card.querySelector('.property-card__price');
+                if (!priceElement) return;
+                
+                const price = parseInt(priceElement.textContent.replace(/[^0-9]/g, ''));
+                const matches = price >= from && price <= to;
+                
+                card.style.display = matches ? 'block' : 'none';
+                if (matches) visibleCount++;
+            });
+            
+            if (noResults) {
+                noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+            }
+        }
+        
+        if (priceFrom) priceFrom.addEventListener('input', filterByPrice);
+        if (priceTo) priceTo.addEventListener('input', filterByPrice);
+    }
+
+    // ========== Reset Filters ==========
+    function initResetFilters() {
+        const resetBtn = document.getElementById('resetFilters');
+        if (!resetBtn) return;
+        
+        resetBtn.addEventListener('click', () => {
+            categoryBtns.forEach(btn => btn.classList.remove('active'));
+            const allBtn = document.querySelector('.category-btn[data-target="all"]');
+            if (allBtn) allBtn.classList.add('active');
+            filterProperties('all');
+            
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) searchInput.value = '';
+            
+            const priceFrom = document.getElementById('priceFrom');
+            const priceTo = document.getElementById('priceTo');
+            if (priceFrom) priceFrom.value = '';
+            if (priceTo) priceTo.value = '';
+            
+            propertyCards.forEach(card => card.style.display = 'block');
+            if (noResults) noResults.style.display = 'none';
+            
+            showMessage('Фильтры сброшены', 'info');
         });
     }
 
@@ -221,41 +270,8 @@
         }
     }
 
-    // ========== Reset Filters ==========
-    function initResetFilters() {
-        const resetBtn = document.getElementById('resetFilters');
-        if (!resetBtn) return;
-        
-        resetBtn.addEventListener('click', () => {
-            // Сброс категорий
-            categoryBtns.forEach(btn => btn.classList.remove('active'));
-            const allBtn = document.querySelector('.category-btn[data-target="all"]');
-            if (allBtn) allBtn.classList.add('active');
-            filterProperties('all');
-            
-            // Сброс поиска
-            const searchInput = document.getElementById('searchInput');
-            if (searchInput) searchInput.value = '';
-            
-            // Сброс цены (если есть)
-            const priceFrom = document.getElementById('priceFrom');
-            const priceTo = document.getElementById('priceTo');
-            if (priceFrom) priceFrom.value = '';
-            if (priceTo) priceTo.value = '';
-            
-            // Показываем все карточки
-            propertyCards.forEach(card => card.style.display = 'block');
-            if (noResults) noResults.style.display = 'none';
-            
-            if (window.showMessage) {
-                window.showMessage('Фильтры сброшены', 'info');
-            }
-        });
-    }
-
     // ========== Event Listeners ==========
     function initEventListeners() {
-        // Фильтрация по категориям
         categoryBtns.forEach(btn => {
             btn.addEventListener('click', function() {
                 const target = this.dataset.target;
@@ -265,7 +281,6 @@
             });
         });
         
-        // Кнопка "Показать все"
         if (showAllBtn) {
             showAllBtn.addEventListener('click', function() {
                 categoryBtns.forEach(btn => btn.classList.remove('active'));
@@ -280,23 +295,18 @@
     function init() {
         console.log('Инициализация страницы объектов...');
         
-        // Инициализация событий
         initEventListeners();
-        
-        // Инициализация галерей
         propertyCards.forEach(card => initGallery(card));
-        
-        // Инициализация дополнительных функций
         initFavorites();
         initContactButtons();
         initSearch();
+        initPriceFilter();
         initResetFilters();
         initFromURL();
         
         console.log(`Загружено ${propertyCards.length} объектов`);
     }
     
-    // Запуск после загрузки DOM
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {

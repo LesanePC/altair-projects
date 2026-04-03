@@ -1,7 +1,3 @@
-/**
- * about.js - Специфичная логика для страницы "О нас"
- */
-
 (function() {
     'use strict';
 
@@ -11,24 +7,22 @@
     }
 
     // ========== Функция для показа сообщений ==========
-    if (typeof window.showMessage !== 'function') {
-        window.showMessage = function(text, type) {
-            const existingMessage = document.querySelector('.message-toast');
-            if (existingMessage) existingMessage.remove();
-            
-            const message = document.createElement('div');
-            message.className = `message-toast message-toast--${type}`;
-            message.textContent = text;
-            document.body.appendChild(message);
-            
-            setTimeout(() => message.classList.add('show'), 10);
-            setTimeout(() => {
-                message.classList.remove('show');
-                setTimeout(() => message.remove(), 300);
-            }, 3000);
-            
-            message.addEventListener('click', () => message.remove());
-        };
+    function showMessage(text, type = 'info') {
+        const existingMessage = document.querySelector('.message-toast');
+        if (existingMessage) existingMessage.remove();
+        
+        const message = document.createElement('div');
+        message.className = `message-toast message-toast--${type}`;
+        message.textContent = text;
+        document.body.appendChild(message);
+        
+        setTimeout(() => message.classList.add('show'), 10);
+        setTimeout(() => {
+            message.classList.remove('show');
+            setTimeout(() => message.remove(), 300);
+        }, 3000);
+        
+        message.addEventListener('click', () => message.remove());
     }
 
     // ========== SIMPLE REVIEWS SLIDER ==========
@@ -45,7 +39,6 @@
         const totalSlides = slides.length;
         let autoplayInterval;
         
-        // Создаем точки навигации
         function createDots() {
             if (!dotsContainer) return;
             dotsContainer.innerHTML = '';
@@ -59,7 +52,6 @@
             updateDots();
         }
         
-        // Обновляем активную точку
         function updateDots() {
             const dots = document.querySelectorAll('.slider-dots button');
             dots.forEach((dot, i) => {
@@ -67,55 +59,51 @@
             });
         }
         
-        // Переход к слайду
         function goToSlide(index) {
             currentIndex = index;
             slider.style.transform = `translateX(-${currentIndex * 100}%)`;
             updateDots();
         }
         
-        // Следующий слайд
         function nextSlide() {
             currentIndex = (currentIndex + 1) % totalSlides;
             goToSlide(currentIndex);
         }
         
-        // Предыдущий слайд
         function prevSlide() {
             currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
             goToSlide(currentIndex);
         }
         
-        // Запуск автопрокрутки
         function startAutoplay() {
             if (autoplayInterval) clearInterval(autoplayInterval);
             autoplayInterval = setInterval(nextSlide, 5000);
         }
         
-        // Остановка автопрокрутки
         function stopAutoplay() {
             if (autoplayInterval) clearInterval(autoplayInterval);
         }
         
-        // Инициализация
         createDots();
         goToSlide(0);
         startAutoplay();
         
-        // События для кнопок
-        if (prevBtn) prevBtn.addEventListener('click', () => {
-            stopAutoplay();
-            prevSlide();
-            startAutoplay();
-        });
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                stopAutoplay();
+                prevSlide();
+                startAutoplay();
+            });
+        }
         
-        if (nextBtn) nextBtn.addEventListener('click', () => {
-            stopAutoplay();
-            nextSlide();
-            startAutoplay();
-        });
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                stopAutoplay();
+                nextSlide();
+                startAutoplay();
+            });
+        }
         
-        // Пауза при наведении
         const sliderContainer = document.querySelector('.reviews-slider');
         if (sliderContainer) {
             sliderContainer.addEventListener('mouseenter', stopAutoplay);
@@ -129,11 +117,6 @@
     function initCounters() {
         const statNumbers = document.querySelectorAll('.achievement-number, .stat-number');
         if (!statNumbers.length) return;
-        
-        const observerOptions = {
-            threshold: 0.5,
-            rootMargin: '0px'
-        };
         
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -164,7 +147,7 @@
                     observer.unobserve(entry.target);
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.5 });
         
         statNumbers.forEach(counter => observer.observe(counter));
     }
@@ -224,20 +207,19 @@
                 const phoneNumber = this.getAttribute('href').replace('tel:', '');
                 
                 navigator.clipboard.writeText(phoneNumber).then(() => {
-                    if (window.showMessage) window.showMessage('Номер телефона скопирован', 'success');
+                    showMessage('Номер телефона скопирован', 'success');
                 }).catch(() => {
-                    if (window.showMessage) window.showMessage('Не удалось скопировать номер', 'error');
+                    showMessage('Не удалось скопировать номер', 'error');
                 });
             });
         });
     }
     
-     // ========== Form Handling ==========
+    // ========== Form Handling ==========
     function initFormHandling() {
         const callbackForm = document.getElementById('callbackForm');
         if (!callbackForm) return;
         
-        // Маска для телефона (чистый JS)
         const phoneInput = callbackForm.querySelector('input[name="phone"]');
         if (phoneInput) {
             phoneInput.addEventListener('input', function(e) {
@@ -260,7 +242,6 @@
             });
         }
         
-        // Отправка формы
         callbackForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
@@ -268,12 +249,12 @@
             const phone = this.querySelector('input[name="phone"]').value.trim();
             
             if (!name) {
-                if (window.showMessage) window.showMessage('Введите ваше имя', 'error');
+                showMessage('Введите ваше имя', 'error');
                 return;
             }
             
             if (!phone || phone === '+7 (___) ___-__-__') {
-                if (window.showMessage) window.showMessage('Введите номер телефона', 'error');
+                showMessage('Введите номер телефона', 'error');
                 return;
             }
             
@@ -284,16 +265,11 @@
             
             try {
                 await new Promise(resolve => setTimeout(resolve, 1000));
-                
-                if (window.showMessage) {
-                    window.showMessage('Спасибо! Мы свяжемся с вами в ближайшее время.', 'success');
-                }
+                showMessage('Спасибо! Мы свяжемся с вами в ближайшее время.', 'success');
                 this.reset();
             } catch (error) {
                 console.error('Form submission error:', error);
-                if (window.showMessage) {
-                    window.showMessage('Произошла ошибка. Пожалуйста, попробуйте позже.', 'error');
-                }
+                showMessage('Произошла ошибка. Пожалуйста, попробуйте позже.', 'error');
             } finally {
                 submitBtn.disabled = false;
                 submitBtn.textContent = originalText;
@@ -388,7 +364,6 @@
         console.log('Страница "О нас" загружена');
     }
     
-    // Запуск
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {

@@ -226,29 +226,44 @@
         window.addEventListener('resize', debounce(checkAnimation, 100));
         checkAnimation();
     }
+    
     // ========== Mobile Touch Handling for Works Cards ==========
 function initMobileTouchWorks() {
     const worksCards = document.querySelectorAll('.works__item');
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth <= 768;
     
-    if (!isMobile) return; // Только для мобильных
+    if (!isMobile || !worksCards.length) return;
     
     let touchTimer = null;
     let currentCard = null;
     
     worksCards.forEach(card => {
-        // Первое касание — показывает информацию
+        // Получаем оригинальный href (если есть)
+        const originalHref = card.getAttribute('href');
+        
+        // Отменяем переход по ссылке при клике (будем управлять вручную)
+        card.addEventListener('click', function(e) {
+            // Если нет таймера (т.е. не было долгого касания) - не переходим
+            if (!touchTimer && currentCard !== this) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+        });
+        
+        // Первое касание - показывает оверлей
         card.addEventListener('touchstart', function(e) {
             e.preventDefault();
+            e.stopPropagation();
             
             // Убираем выделение со всех карточек
             worksCards.forEach(c => c.classList.remove('touched'));
             
-            // Добавляем выделение текущей
+            // Показываем оверлей на текущей карточке
             this.classList.add('touched');
             currentCard = this;
             
-            // Устанавливаем таймер для перехода
+            // Устанавливаем таймер для перехода по ссылке через 500мс
+            if (touchTimer) clearTimeout(touchTimer);
             touchTimer = setTimeout(() => {
                 if (currentCard && currentCard.classList.contains('touched')) {
                     const href = currentCard.getAttribute('href');
@@ -257,10 +272,11 @@ function initMobileTouchWorks() {
                     }
                 }
                 touchTimer = null;
+                currentCard = null;
             }, 500);
         });
         
-        // Отмена таймера при touchend (если не было повторного касания)
+        // Отмена таймера при уходе пальца
         card.addEventListener('touchend', function(e) {
             if (touchTimer) {
                 clearTimeout(touchTimer);
@@ -268,16 +284,20 @@ function initMobileTouchWorks() {
             }
         });
         
-        // Отмена при движении пальца
+        // Отмена при движении пальца (свайп)
         card.addEventListener('touchmove', function(e) {
             if (touchTimer) {
                 clearTimeout(touchTimer);
                 touchTimer = null;
             }
+            if (currentCard) {
+                currentCard.classList.remove('touched');
+                currentCard = null;
+            }
         });
     });
     
-    // Клик вне карточки — убираем выделение
+    // Закрыть оверлей при клике в любом месте вне карточки
     document.addEventListener('click', function(e) {
         if (!e.target.closest('.works__item')) {
             worksCards.forEach(card => card.classList.remove('touched'));
@@ -285,15 +305,16 @@ function initMobileTouchWorks() {
                 clearTimeout(touchTimer);
                 touchTimer = null;
             }
+            currentCard = null;
         }
     });
 }
+    
     // ========== Form Handling ==========
     function initFormHandling() {
         const callbackForm = document.getElementById('callbackForm');
         if (!callbackForm) return;
         
-        // Маска для телефона (чистый JS)
         const phoneInput = callbackForm.querySelector('input[name="phone"]');
         if (phoneInput) {
             phoneInput.addEventListener('input', function(e) {
@@ -316,7 +337,6 @@ function initMobileTouchWorks() {
             });
         }
         
-        // Отправка формы
         callbackForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
@@ -324,12 +344,12 @@ function initMobileTouchWorks() {
             const phone = this.querySelector('input[name="phone"]').value.trim();
             
             if (!name) {
-                if (window.showMessage) window.showMessage('Введите ваше имя', 'error');
+                showMessage('Введите ваше имя', 'error');
                 return;
             }
             
             if (!phone || phone === '+7 (___) ___-__-__') {
-                if (window.showMessage) window.showMessage('Введите номер телефона', 'error');
+                showMessage('Введите номер телефона', 'error');
                 return;
             }
             
@@ -340,16 +360,11 @@ function initMobileTouchWorks() {
             
             try {
                 await new Promise(resolve => setTimeout(resolve, 1000));
-                
-                if (window.showMessage) {
-                    window.showMessage('Спасибо! Мы свяжемся с вами в ближайшее время.', 'success');
-                }
+                showMessage('Спасибо! Мы свяжемся с вами в ближайшее время.', 'success');
                 this.reset();
             } catch (error) {
                 console.error('Form submission error:', error);
-                if (window.showMessage) {
-                    window.showMessage('Произошла ошибка. Пожалуйста, попробуйте позже.', 'error');
-                }
+                showMessage('Произошла ошибка. Пожалуйста, попробуйте позже.', 'error');
             } finally {
                 submitBtn.disabled = false;
                 submitBtn.textContent = originalText;
@@ -470,7 +485,6 @@ function initMobileTouchWorks() {
         }
     }
     
-   
     // ========== Initialize All ==========
     function init() {
         handleFixedHeader();
@@ -487,7 +501,6 @@ function initMobileTouchWorks() {
         initImageErrorHandling();
         initKeyboardNavigation();
         optimizePerformance();
-        
         
         if (window.location.hostname === 'localhost') {
             window.debug = {
@@ -507,21 +520,3 @@ function initMobileTouchWorks() {
     }
     
 })();
-
-// ========== Service Worker Registration (Optional) ==========
-if ('serviceWorker' in navigator && window.location.protocol === 'https:') {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js').catch(registrationError => {
-            console.log('SW registration failed: ', registrationError);
-        });
-    });
-}
-
-// ========== Export for Modules (if needed) ==========
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {
-        showMessage,
-        validateForm,
-        formatPhoneNumber
-    };
-}
